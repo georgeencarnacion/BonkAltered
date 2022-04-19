@@ -70,18 +70,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateBusiness(UserDTO userDTO, User userM) {
+    public void updateBusiness(UserDTO userDTO) {
         User user = new User(userDTO);
-        UserDTO previousUser = get(user.getId());
+        User previousUser = userRepository.findById(userDTO.getId()).get();
         user.setFirstName(previousUser.getFirstName());
         user.setMiddleName(previousUser.getMiddleName());
         user.setLastName(previousUser.getLastName());
         user.setEmail(previousUser.getEmail());
-//        Password is Null
-        user.setPasswordHash(userM.getPasswordHash());
-
+        user.setPasswordHash(previousUser.getPasswordHash());
         user.setPhoneNum(previousUser.getPhoneNum());
 
-        userRepository.save(new User(userDTO));
+        userRepository.save(user);
     }
 }

@@ -49,11 +49,11 @@
         <span>Proof of Business</span>
         <p th:text="${business.proofofBusiness}"/>
 
-
+    </tr>
 
 
         <div class="user-info">
-            <form th:method="PUT" th:action="@{~/admin}" th:object="${user}" class="user-form">
+            <form th:method="PATCH" th:action="@{~/admin}" th:object="${user}" class="user-form">
                 <h1>User Information</h1>
 
                 <input type="hidden" name="id" th:field="*{id}">
@@ -73,9 +73,7 @@
 
                 <span>Business Approval</span>
                 <select th:field="*{role}">
-                    <option value="'ROLE_USER'">Pending</option>
-                    <option value="'ROLE_BUSINESS'">Approved</option>
-                    <option value="4">Declined</option>
+                    <option th:each="role : ${roles}" th:text="${role}" th:value="${role}"></option>
                 </select>
 
 
@@ -90,6 +88,7 @@
             </form>
 
         </div>
+    </div>
 
 </body>
 </html>

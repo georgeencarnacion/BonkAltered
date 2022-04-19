@@ -18,6 +18,6 @@ public interface UserService {
 
     UserDTO validateUser(String emailAddress, String password);
 
-    void updateBusiness(UserDTO updatedUser, User userM);
+    void updateBusiness(UserDTO updatedUser);
 }
 
