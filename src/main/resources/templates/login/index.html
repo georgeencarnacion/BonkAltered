@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merkante Login</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="forms">
+
+  <input type="checkbox" id="flip">
+
+  <div class="slider">
+    <h1>"The money you make is
+      a symbol of the value
+      you create."</h1>
+  </div>
+
+
+  <form th:method="POST" th:action="@{~/login}" th:object="${user}">
+
+    <h1>Sign in to Merkante</h1>
+
+    <span >Email:</span>
+    <input type="email" class="form-control" id="emailAddress" th:field="*{email}">
+
+    <span>Password:</span>
+    <input type="password" class="form-control" id="password" th:field="*{password}">
+
+    <button type="submit">Sign in</button>
+
+    <label class="link" for="flip">Don't have an account?</label>
+
+  </form>
+
+  <form th:method="POST" th:action="@{~/register}" th:object="${user}">
+
+    <h1>Create an Account</h1>
+
+    <span>First Name:</span>
+    <input type="text" class="form-control" id="firstName" th:field="*{firstName}" placeholder="John">
+
+    <span>Middle Name:</span>
+    <input type="text" class="form-control" id="middleName" th:field="*{middleName}" placeholder="Cruz">
+
+    <span>Last Name:</span>
+    <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Doe">
+
+    <span>Email:</span>
+    <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="jd@gmail.com">
+
+    <span>Phone Number:</span>
+    <input type="text" class="form-control" id="phoneNum" th:field="*{phoneNum}" placeholder="0987 654 3210">
+
+    <span>Password:</span>
+    <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="password">
+
+    <span>Re-type Password:</span>
+    <input type="password" placeholder="password">
+
+    <button type="submit">Register</button>
+
+    <label class="link" for="flip">Already Have an Account?</label>
+
+  </form>
+</div>
+
+</body>
+</html>

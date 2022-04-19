@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Apply Now!</title>
+</head>
+<body>
+<nav>
+    <a href="#index.html">
+        <h1>Merkante</h1>
+    </a>
+
+    <div class="details">
+        <a href="#About" >About</a>
+        &nbsp;
+        <a href="Contact.html" >Contact Us</a>
+        &nbsp;
+    </div>
+
+    <a href="Login.html" class="signin">Sign in</a>
+</nav>
+
+<div class="options">
+
+    <div class="container">
+        <h1 class="mt-5">Hello, <span th:text="${#authentication.principal.firstName}"/> <span th:text="${#authentication.principal.lastName}"/>!</h1>
+    </div>
+
+    <a th:href="@{~/business/{id}/(id=${#authentication.principal.Id})}" ><button class="apply"> Register your Business</button></a>
+
+    <span>or</span>
+    <a th:href="@{~/logout}"><button class="signout" >Sign-Out</button></a>
+</div>
+</body>
+</html>

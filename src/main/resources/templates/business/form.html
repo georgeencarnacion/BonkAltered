@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Application</title>
+    <link rel="stylesheet" href="/css/form.css">
+
+</head>
+<body>
+<nav>
+    <a href="#index.html">
+        <h1>Merkante</h1>
+    </a>
+
+    <div class="details">
+        <a href="#About" >About</a>
+        &nbsp;
+        <a href="Contact.html" >Contact Us</a>
+        &nbsp;
+    </div>
+
+    <a href="Login.html" class="signin">Sign in</a>
+</nav>
+
+<form th:method="POST" th:action="@{~/business/{id}/(id=${user.id})}" th:object="${business}" class="application">
+
+
+    <h1>Business Application</h1>
+    <input type="hidden" name="owner" th:field="*{businessId}">
+    <span>Business Name:</span>
+    <input type="text" th:field="*{businessName}" placeholder="Business Name">
+
+    <span>Location</span>
+    <input type="text" th:field="*{location}" placeholder="Location">
+
+    <span>Proof of Business:</span>
+    <input type="text" th:field="*{proofofBusiness}" placeholder="B.I.R. /D.T.I.">
+
+    <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

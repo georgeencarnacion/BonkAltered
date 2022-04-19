@@ -1,0 +1,372 @@
+@import url('http://fonts.cdnfonts.com/css/sen');
+
+:root{
+    --black-rgba: rgba(0,0,0,0.2);
+    --Pink: #FE657D;
+    --Pink-after: #ff6c82;
+    --Pastel-Pink: #FCB2A9;
+    --Cream: #E3E3DB;
+    --Mint: #94E4C9;
+    --Green:#509B7D;
+}
+
+*{
+    font-family:'Sen', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    line-height: 1.6;
+    background-color: var(--Cream);
+}
+
+body::-webkit-scrollbar{
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: var(--Cream);
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--Pink-after);
+}
+
+/* Nav-bar */
+.side-bar{
+    height: 100vh;
+    position: fixed;
+    background: var(--Green);
+    transition: 200ms ease;
+}
+
+.logo{
+   font-weight: bold;
+   margin-bottom: 1rem;
+   text-align: center;
+   font-size: 1.5rem;
+   width: 100%;
+}
+
+.logo i{
+    font-size: 40px;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+    transform: rotate(0deg);
+    transition: transform 600ms;
+}
+
+.side-bar:hover .logo i{
+    transform: rotate(-360deg);
+}
+
+
+.side-bar:hover .nav-link span{
+    display: block;
+}
+
+.side-bar .nav-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item{
+    width: 100%;
+}
+
+.nav-item i{
+    font-size: 40px;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+}
+
+.nav-item i{
+    transition: 600ms;
+    color: black;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    filter: grayscale(100%) opacity(0.7);
+    transition: 600ms;
+}
+
+.nav-link:hover{
+    filter: grayscale(0%) opacity(1);
+    background: var(--Mint);
+    color: black;
+}
+
+.link-text{
+    display: none;
+    margin-left: 1rem;
+}
+
+.nav-item:last-child{
+    margin-top: auto;
+}
+/* Nav-bar-end*/
+
+/* Add-Inventory */
+
+.addInventory{
+    position: relative;
+    margin-left: 5rem;
+    height: 100vh;
+
+}
+
+.addInventory form{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 450px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+
+}
+
+.addInventory form h1, span, input, button{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.addInventory form input{
+    height: 30px;
+    width: 70%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--black-rgba);
+    border-radius: 5px;
+}
+
+.addInventory form input:nth-child(5){
+    width: 40%;
+}
+
+.addInventory form input:nth-child(7){
+    width: 30%;
+}
+
+.addInventory form button{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    background-color: var(--Pastel-Pink);
+    display: inline-block;
+    border-radius: 5px;
+    font-size: larger;
+    height: 35px;
+    width: 50%;
+    transition: all .3s ease-in-out;
+}
+
+.addInventory form button:hover{
+    background-color: var(--Mint);
+    cursor: pointer;
+}
+/* Add-Inventory-End */
+
+/* Expenses */
+.expenses{
+    height: 100vh;
+}
+
+.expenses form{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 550px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+
+}
+
+.expenses form h1, span, input, button{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.expenses form input{
+    height: 30px;
+    width: 60%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--black-rgba);
+    border-radius: 5px;
+}
+
+.expenses form input:nth-last-child(2){
+    width: 70%;
+}
+
+.expenses form button{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    background-color: var(--Pastel-Pink);
+    display: inline-block;
+    border-radius: 5px;
+    font-size: larger;
+    height: 35px;
+    width: 70%;
+    transition: all .3s ease-in-out;
+}
+
+.expenses form button:hover{
+    background-color: var(--Mint);
+    cursor: pointer;
+}
+/* Expenses-end */
+
+/* Inventory-Main */
+.inventory{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+
+}
+
+
+
+.inventory a{
+    display: block;
+    height: 25px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    width: 40%;
+    transition: all .3s ease-in-out;
+}
+
+.inventory .edit{
+    background-color: var(--Mint);
+}
+
+.inventory .delete{
+    background-color: var(--Pastel-Pink);
+}
+
+.inventory .add:hover{
+    background-color: var(--Green);
+}
+
+.inventory .delete:hover{
+    background-color: var(--Pink);
+}
+
+.table{
+    padding: 5px;
+}
+/* Inventory-End */
+
+/* Records */
+.title{
+    margin-top: 5%;
+    margin-left: 7%;
+    text-align: center;
+}
+
+.records {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 5%;
+}
+
+.record{
+    margin-top: 50px;
+    margin-right: 50px;
+    width: 250px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+}
+
+.record ul{
+    margin-left: 15%;
+    margin-top: 10px;
+    list-style: none;
+}
+
+.record h2{
+    text-align: center;
+    border-bottom: 2px solid var(--black-rgba);
+}
+/* Record-End */
+
+
+
+
+
+/* Small screen */
+@media only screen and (max-width: 600px){
+    .side-bar{
+        top: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+    .logo{
+        display: none;
+    }
+    .nav-list{
+        flex-direction: row;
+    }
+    .nav-link{
+        justify-content: center;
+    }
+
+}
+
+/* Large screen */
+@media only screen and (min-width: 600px){
+    .side-bar{
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+
+    }
+    .side-bar:hover{
+        width: 16rem;
+    }
+    .nav-list{
+        flex-direction: column;
+    }
+    .side-bar:hover .link-text{
+        display: inline;
+        transition: opacity 600ms;
+    }
+
+}

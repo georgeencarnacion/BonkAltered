@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Admin</title>
+
+</head>
+<body>
+
+<nav class="side-bar">
+    <div class="logo">
+        <i class='bx bx-package'></i>
+    </div>
+
+    <ul class="nav-list">
+
+
+        <li class="nav-item">
+
+            <a href="Inventory.html" class="nav-link">
+                <i class='bx bx-table'></i>
+                <span class="link-text">Businesses</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a href="index.html" class="nav-link">
+                <i class='bx bx-exit'></i>
+                <span class="link-text">Sign out</span>
+            </a>
+
+        </li>
+    </ul>
+</nav>
+<div class="inventory">
+
+    <table id="DataTable">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>View Business</th>
+        </tr>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.middleName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.phoneNum}"></td>
+            <td>
+                <a class="edit" th:href="@{~/admin/{id}(id=${user.id})}">View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>$(document).ready(function() {
+    $('#DataTable').DataTable();
+} );</script>
+
+
+</body>
+</html>

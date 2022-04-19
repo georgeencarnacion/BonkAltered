@@ -1,0 +1,136 @@
+@import url('http://fonts.cdnfonts.com/css/sen');
+
+:root{
+    --black-rgba: rgba(0,0,0,0.2);
+    --Pink: #FE657D;
+    --Pink-after: #ff6c82;
+    --Pastel-Pink: #FCB2A9;
+    --Cream: #E3E3DB;
+    --Mint: #94E4C9;
+    --Green:#509B7D;
+}
+
+*{
+    font-family:'Sen', sans-serif;
+}
+
+body{
+    line-height: 1.6;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: var(--Pink-after);
+    min-height: 100vh;
+}
+
+
+.forms{
+    position: relative;
+    max-width: 900px;
+    max-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    box-shadow: 0 5px 10px var(--black-rgba);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Animations */
+.forms #flip{
+    display: none;
+}
+
+.slider{
+    position: absolute;
+    background-color: pink;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all 1s ease-in-out;
+}
+
+.slider h1{
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
+
+.forms #flip:checked ~ .slider{
+    transform: translateX(-100%);
+    background-color: rgb(116, 181, 255);
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Animations-End */
+
+/* Forms */
+form{
+    height: 100%;
+    width: 350px;
+}
+
+.forms .login{
+    margin-left: 30px;
+    left: 5%;
+}
+
+.forms .register{
+    right: 5%;
+}
+
+form h1, span, input, button, label{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+form input{
+    height: 100%;
+    width: 50%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--black-rgba);
+}
+
+form button{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--Mint);
+    border-radius: 5px;
+    font-size: larger;
+    height: 35px;
+    transition: all .3s ease;
+}
+
+form button:hover{
+    background-color: rgb(134, 193, 241);
+    cursor: pointer;
+}
+
+form .link{
+    transition: all .3s ease;
+}
+
+form .link:hover{
+    color: var(--Pink-after);
+    cursor: pointer;
+}
+
+.register label{
+    margin-bottom: 10px;
+}
+/* Forms-end */

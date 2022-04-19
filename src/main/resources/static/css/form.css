@@ -1,0 +1,271 @@
+@import url('http://fonts.cdnfonts.com/css/sen');
+:root{
+    --black-rgba: rgba(0,0,0,0.2);
+    --blue: rgb(134, 193, 241);
+    --Pink: #FE657D;
+    --Pink-after: #ff6c82;
+    --Pastel-Pink: #FCB2A9;
+    --Cream: #E3E3DB;
+    --Mint: #94E4C9;
+    --Green:#509B7D;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    font-family:'Sen', sans-serif;
+    background-color: var(--Cream);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    transition: .3s ease;
+}
+
+a:hover{
+    color: var(--Cream);
+}
+
+button{
+    transition: all .5s ease-in-out;
+}
+/* Navbar */
+nav{
+    position: relative;
+    height: 80px;
+    background-color: var(--Green);
+    display: flex;
+}
+
+nav h1{
+    position: absolute;
+    left: 5%;
+    text-transform: uppercase;
+}
+
+nav h1:hover{
+    cursor: pointer;
+}
+
+nav .details{
+    position: absolute;
+    top: 25px;
+    left: 50%;
+}
+
+nav .signin{
+    position: absolute;
+    top: 25px;
+    right: 10%;
+}
+
+/* Form */
+.application{
+    margin-top: 40px;
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 550px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+
+}
+
+.application h1, span, input, button{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+.application input{
+    height: 30px;
+    width: 60%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--black-rgba);
+    border-radius: 5px;
+}
+
+.application button{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--Mint);
+    border-radius: 5px;
+    font-size: larger;
+    height: 35px;
+    transition: all .3s ease;
+}
+
+.application button:hover{
+    background-color: rgb(134, 193, 241);
+    cursor: pointer;
+}
+/* Form-End */
+/* Options */
+.options{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.options .signout, .apply, span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signout{
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: var(--Pastel-Pink);
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+    margin-left: 10%;
+}
+
+.signout:hover{
+    background-color: var(--Pink-after);
+
+}
+
+.apply{
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-color: var(--Mint);
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+}
+
+.apply:hover{
+    background-color: #6ed1aa;
+}
+/* Business-Info */
+.view-business{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.view-business form{
+    margin-top: 40px;
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 700px;
+    width: 800px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+
+}
+
+.view-business form h1, span, p, .update{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+.view-business form p:not(.update){
+    height: 30px;
+    width: 60%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--black-rgba);
+    border-radius: 5px;
+}
+
+.view-business form .update{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--Mint);
+    border-radius: 5px;
+    font-size: larger;
+    height: 35px;
+    transition: all .3s ease;
+}
+
+.user-info form .update:hover{
+    background-color: rgb(134, 193, 241);
+    cursor: pointer;
+}
+/* Business-Info-End */
+/* User-Info */
+.user-info{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+}
+.user-info .user-form{
+    margin-top: 40px;
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 800px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+
+}
+
+.user-info .user-form h1, span, p, .update, select{
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+.user-info .user-form p:not(.update){
+    height: 30px;
+    width: 60%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--black-rgba);
+    border-radius: 5px;
+}
+
+.user-info form .update{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--Pastel-Pink);
+    border-radius: 5px;
+    font-size: larger;
+    height: 35px;
+    transition: all .3s ease;
+}
+
+.user-info form .update:hover{
+    background-color: var(--Pink-after);
+    cursor: pointer;
+}
+
+.user-info .btn-del{
+    position: absolute;
+    bottom: 12%;
+    left: 55%;
+}
+/* User-Info-End*/
+

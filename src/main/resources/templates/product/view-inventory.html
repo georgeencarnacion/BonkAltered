@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Inventory</title>
+
+</head>
+<body>
+
+<nav class="side-bar">
+    <div class="logo">
+        <i class='bx bx-package'></i>
+    </div>
+
+    <ul class="nav-list">
+
+        <li class="nav-item">
+
+            <a href="Records.html" class="nav-link">
+                <i class='bx bx-bar-chart-square'></i>
+                <span class="link-text">Records</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a href="Inventory.html" class="nav-link">
+                <i class='bx bx-table'></i>
+                <span class="link-text">Inventory</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a href="Expenses.html" class="nav-link">
+                <i class='bx bx-calculator'></i>
+                <span class="link-text">Expenses</span>
+            </a>
+
+        </li>
+        <li class="nav-item">
+
+            <a href="Contact.html" class="nav-link">
+                <i class='bx bx-phone'></i>
+                <span class="link-text">Contact Us</span>
+            </a>
+
+        </li>
+        <li class="nav-item">
+
+            <a href="index.html" class="nav-link">
+                <i class='bx bx-exit'></i>
+                <span class="link-text">Sign out</span>
+            </a>
+
+        </li>
+    </ul>
+</nav>
+
+<div class="inventory">
+    <table id="DataTable">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Qty.</th>
+            <th>Price</th>
+            <th>Resell Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td th:text="|₱ ${product.price}|"></td>
+            <td th:text="|₱ ${product.resellPrice}|"></td>
+
+            <td ><a class="add" th:href="@{~/inventory/{id}(id=${product.productId})}">View</a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{~/inventory/add}">Add product</a>
+</div>
+<script>$(document).ready(function() {
+        $('#DataTable').DataTable();
+    } );</script>
+
+</body>
+</html>

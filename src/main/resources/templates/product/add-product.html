@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Submit a Product</title>
+</head>
+<body>
+
+<nav class="side-bar">
+    <div class="logo">
+        <i class='bx bx-package'></i>
+    </div>
+
+    <ul class="nav-list">
+        <li class="nav-item">
+
+            <a href="Records.html" class="nav-link">
+                <i class='bx bx-bar-chart-square'></i>
+                <span class="link-text">Records</span>
+            </a>
+
+        </li>
+        <li class="nav-item">
+
+            <a href="Inventory.html" class="nav-link">
+                <i class='bx bx-table'></i>
+                <span class="link-text">Inventory</span>
+            </a>
+
+        </li>
+
+        <li class="nav-item">
+
+            <a href="Expenses.html" class="nav-link">
+                <i class='bx bx-calculator'></i>
+                <span class="link-text">Expenses</span>
+            </a>
+
+        </li>
+        <li class="nav-item">
+
+            <a href="Contact.html" class="nav-link">
+                <i class='bx bx-phone'></i>
+                <span class="link-text">Contact Us</span>
+            </a>
+
+        </li>
+        <li class="nav-item">
+
+            <a href="index.html" class="nav-link">
+                <i class='bx bx-exit'></i>
+                <span class="link-text">Sign out</span>
+            </a>
+
+        </li>
+    </ul>
+</nav>
+
+<div class="addInventory">
+
+    <form class="addform" th:method="POST" th:action="@{~/inventory}" th:object="${product}">
+
+        <h1>Add a product</h1>
+
+        <span>Name of Product</span>
+        <input type="text" id="productName" th:field="*{productName}" placeholder="Product Name">
+
+        <span>Quantity:</span>
+        <input type="number" id="quantity" th:field="*{quantity}"placeholder="Quantity">
+
+        <span>Price:</span>
+        <input type="number" id="price" th:field="*{price}" placeholder="Price">
+
+        <span>Resell Price:</span>
+        <input type="number" id="resellPrice" th:field="*{resellPrice}" placeholder="Resell Price">
+
+        <button type="submit">Add Product</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
