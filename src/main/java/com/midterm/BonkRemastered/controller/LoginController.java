@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("login")
 public class LoginController {
 
-    private static final String USER_ROLE = "ROLE_USER";
 
     @Autowired
     private UserService userService;

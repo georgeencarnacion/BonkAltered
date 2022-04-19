@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 @RequestMapping("admin")
 public class AdminController {
@@ -31,20 +34,24 @@ public class AdminController {
     @GetMapping("/{id}")
     private String getUser(@PathVariable Long id, Model model) {
 
+        List<String> availableRoles = Arrays.asList("ROLE_PENDING", "ROLE_APPROVED", "ROLE_DECLINED");
 
         model.addAttribute("user", userService.get(id));
         model.addAttribute("business", new BusinessDTO());
+        model.addAttribute("roles", availableRoles);
 
         return "admin/review";
     }
 
 
 
-    @PutMapping
-    private String updateAdmin(UserDTO user, Model model, User userM) {
+    @PatchMapping
+    private String updateAdmin(UserDTO user, Model model) {
 
 
-        userService.updateBusiness(user, userM);
+        model.addAttribute("user", new User());
+
+        userService.updateBusiness(user);
 
         return list(model);
     }

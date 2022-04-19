@@ -1,6 +1,7 @@
 package com.midterm.BonkRemastered.dto;
 
 import com.midterm.BonkRemastered.model.Business;
+import org.springframework.web.multipart.MultipartFile;
 
 public class BusinessDTO {
 
@@ -14,7 +15,9 @@ public class BusinessDTO {
 
     private String proofofBusiness;
 
+    private MultipartFile image;
 
+    /*private String imageLoc;*/
 
     public BusinessDTO(){}
 
@@ -71,8 +74,11 @@ public class BusinessDTO {
         this.proofofBusiness = proofofBusiness;
     }
 
+    public MultipartFile getImage() {
+        return image;
+    }
 
-
-
-
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }
 }

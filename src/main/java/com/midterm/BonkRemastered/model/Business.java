@@ -24,7 +24,8 @@ public class Business {
     @Column(nullable = false)
     private String proofofBusiness;
 
-
+    @Column
+    private String imageLoc;
 
     public Business() {}
 
@@ -83,4 +84,11 @@ public class Business {
         this.proofofBusiness = proofofBusiness;
     }
 
+    public String getImageLoc() {
+        return imageLoc;
+    }
+
+    public void setImageLoc(String imageLoc) {
+        this.imageLoc = imageLoc;
+    }
 }
