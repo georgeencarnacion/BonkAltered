@@ -34,27 +34,12 @@ public class AdminController {
     @GetMapping("/{id}")
     private String getUser(@PathVariable Long id, Model model) {
 
-        List<String> availableRoles = Arrays.asList("ROLE_PENDING", "ROLE_APPROVED", "ROLE_DECLINED");
-
         model.addAttribute("user", userService.get(id));
         model.addAttribute("business", new BusinessDTO());
-        model.addAttribute("roles", availableRoles);
 
         return "admin/review";
     }
 
-
-
-    @PatchMapping
-    private String updateAdmin(UserDTO user, Model model) {
-
-
-        model.addAttribute("user", new User());
-
-        userService.updateBusiness(user);
-
-        return list(model);
-    }
 
     @DeleteMapping
     private String deleteUser(UserDTO user, Model model) {

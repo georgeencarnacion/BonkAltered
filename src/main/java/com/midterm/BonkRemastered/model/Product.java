@@ -14,7 +14,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
-    private User user;
+    private User uniqueId;
 
     @Column(nullable = false)
     private String productName;
@@ -35,7 +35,7 @@ public class Product {
 
     public Product(ProductDTO productDTO) {
         this.productId = productDTO.getProductId();
-        this.user = new User(productDTO.getUser());
+        this.uniqueId = new User(productDTO.getUniqueId());
         this.productName = productDTO.getProductName();
         this.quantity = productDTO.getQuantity();
         this.price = productDTO.getPrice();
@@ -54,13 +54,12 @@ public class Product {
         this.productId = productId;
     }
 
-    public User getUser() {
-        return user;
+    public User getUniqueId() {
+        return uniqueId;
     }
 
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setUniqueId(User uniqueId) {
+        this.uniqueId = uniqueId;
     }
 
     public String getProductName() {

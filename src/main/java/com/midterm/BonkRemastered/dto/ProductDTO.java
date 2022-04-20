@@ -8,7 +8,7 @@ public class ProductDTO {
 
     private Long productId;
 
-    private Long user;
+    private Long uniqueId;
 
     @NotBlank(message = "Product Name is required")
     private String productName;
@@ -26,15 +26,22 @@ public class ProductDTO {
     private long resellPrice;
 
 
+    public ProductDTO(){}
 
     public ProductDTO(Product product) {
         this.productId = product.getProductId();
-        this.user = product.getUser().getId();
+        this.uniqueId = product.getUniqueId().getId();
         this.productName = product.getProductName();
         this.quantity = product.getQuantity();
         this.price = product.getPrice();
         this.resellPrice = product.getResellPrice();
     }
+
+
+
+
+
+
 
     public Long getProductId() {
         return productId;
@@ -77,17 +84,11 @@ public class ProductDTO {
         this.resellPrice = resellPrice;
     }
 
-    public Long getUser() {
-        return user;
+    public Long getUniqueId() {
+        return uniqueId;
     }
 
-    public void setUser(Long user) {
-        this.user = user;
+    public void setUniqueId(Long uniqueId) {
+        this.uniqueId = uniqueId;
     }
-
-    public ProductDTO() {
-    }
-
-
-
 }

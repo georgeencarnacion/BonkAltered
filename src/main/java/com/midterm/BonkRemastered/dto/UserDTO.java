@@ -1,6 +1,6 @@
 package com.midterm.BonkRemastered.dto;
 
-import com.midterm.BonkRemastered.model.Product;
+
 import com.midterm.BonkRemastered.model.User;
 
 import java.util.Collections;
