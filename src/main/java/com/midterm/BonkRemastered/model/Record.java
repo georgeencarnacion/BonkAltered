@@ -13,9 +13,10 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long recordId;
 
+
     @ManyToOne
-    @JoinColumn(name = "Inventory", nullable = false)
-    private Inventory inventory;
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
     @Column(nullable = false)
     private LocalDate date;
@@ -44,7 +45,7 @@ public class Record {
     public Record(RecordDTO recordDTO) {
 
         this.recordId = recordDTO.getRecordId();
-        this.inventory = new Inventory(recordDTO.getInventory());
+        this.user = new User(recordDTO.getUser());
         this.date = recordDTO.getDate();
         this.revenue = recordDTO.getRevenue();
         this.cogs = recordDTO.getCogs();
@@ -60,12 +61,12 @@ public class Record {
         this.recordId = recordId;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public User getUser() {
+        return user;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDate getDate() {

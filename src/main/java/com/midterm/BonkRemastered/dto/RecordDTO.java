@@ -9,7 +9,9 @@ public class RecordDTO {
 
 
     private Long recordId;
-    private Long inventory;
+
+
+    private Long user;
     private LocalDate date;
     private Integer revenue;
     private Integer cogs;
@@ -21,7 +23,7 @@ public class RecordDTO {
     public RecordDTO(Record record){
 
         this.recordId = record.getRecordId();
-        this.inventory = record.getInventory().getInventoryId();
+        this.user = record.getUser().getId();
         this.date = record.getDate();
         this.revenue = record.getRevenue();
         this.cogs = record.getCogs();
@@ -40,12 +42,12 @@ public class RecordDTO {
         this.recordId = recordId;
     }
 
-    public Long getInventory() {
-        return inventory;
+    public Long getUser() {
+        return user;
     }
 
-    public void setInventory(Long inventory) {
-        this.inventory = inventory;
+    public void setUser(Long user) {
+        this.user = user;
     }
 
     public LocalDate getDate() {

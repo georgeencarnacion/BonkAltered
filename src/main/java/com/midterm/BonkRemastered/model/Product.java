@@ -6,7 +6,6 @@ import com.midterm.BonkRemastered.dto.ProductDTO;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "products")
 public class Product {
 
     @Id
@@ -14,8 +13,8 @@ public class Product {
     private Long productId;
 
     @ManyToOne
-    @JoinColumn(name = "Inventory", nullable = false)
-    private Inventory inventory;
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
 
     @Column(nullable = false)
     private String productName;
@@ -36,7 +35,7 @@ public class Product {
 
     public Product(ProductDTO productDTO) {
         this.productId = productDTO.getProductId();
-        this.inventory = new Inventory(productDTO.getInventory());
+        this.user = new User(productDTO.getUser());
         this.productName = productDTO.getProductName();
         this.quantity = productDTO.getQuantity();
         this.price = productDTO.getPrice();
@@ -55,12 +54,13 @@ public class Product {
         this.productId = productId;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public User getUser() {
+        return user;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getProductName() {

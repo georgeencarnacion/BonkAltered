@@ -8,7 +8,7 @@ public class ProductDTO {
 
     private Long productId;
 
-    private Long inventory;
+    private Long user;
 
     @NotBlank(message = "Product Name is required")
     private String productName;
@@ -25,11 +25,11 @@ public class ProductDTO {
     @PositiveOrZero(message = "Price must not be a negative number")
     private long resellPrice;
 
-    public ProductDTO() {
-    }
+
 
     public ProductDTO(Product product) {
         this.productId = product.getProductId();
+        this.user = product.getUser().getId();
         this.productName = product.getProductName();
         this.quantity = product.getQuantity();
         this.price = product.getPrice();
@@ -44,13 +44,7 @@ public class ProductDTO {
         this.productId = productId;
     }
 
-    public Long getInventory() {
-        return inventory;
-    }
 
-    public void setInventory(Long inventory) {
-        this.inventory = inventory;
-    }
 
     public String getProductName() {
         return productName;
@@ -81,6 +75,17 @@ public class ProductDTO {
 
     public void setResellPrice(long resellPrice) {
         this.resellPrice = resellPrice;
+    }
+
+    public Long getUser() {
+        return user;
+    }
+
+    public void setUser(Long user) {
+        this.user = user;
+    }
+
+    public ProductDTO() {
     }
 
 

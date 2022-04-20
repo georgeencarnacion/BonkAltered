@@ -1,5 +1,6 @@
 package com.midterm.BonkRemastered.dto;
 
+import com.midterm.BonkRemastered.model.Product;
 import com.midterm.BonkRemastered.model.User;
 
 import java.util.Collections;
@@ -32,9 +33,14 @@ public class UserDTO {
 
     private Set<BusinessDTO> businessList;
 
+    private Set<RecordDTO> recordList;
+
+    private Set<ProductDTO> productList;
+
 
     public UserDTO() {
     }
+
 
 
     public UserDTO(User user) {
@@ -52,6 +58,17 @@ public class UserDTO {
                 .map(BusinessDTO::new)
                 .collect(Collectors.toSet());
 
+        this.productList = Optional.ofNullable(user.getProductList())
+                .orElseGet(Collections::emptySet)
+                .stream()
+                .map(ProductDTO::new)
+                .collect(Collectors.toSet());
+
+        this.recordList = Optional.ofNullable(user.getRecordList())
+                .orElseGet(Collections::emptySet)
+                .stream()
+                .map(RecordDTO::new)
+                .collect(Collectors.toSet());
 
     }
 
@@ -135,6 +152,22 @@ public class UserDTO {
 
     public void setBusinessList(Set<BusinessDTO> businessList) {
         this.businessList = businessList;
+    }
+
+    public Set<RecordDTO> getRecordList() {
+        return recordList;
+    }
+
+    public void setRecordList(Set<RecordDTO> recordList) {
+        this.recordList = recordList;
+    }
+
+    public Set<ProductDTO> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(Set<ProductDTO> productList) {
+        this.productList = productList;
     }
 
 }

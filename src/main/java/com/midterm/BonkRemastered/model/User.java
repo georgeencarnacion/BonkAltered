@@ -31,9 +31,17 @@ public class User {
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Business> businessList;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Record> recordList;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Product> productList;
+
     @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(name = "role_id", nullable = true)
     private Role role;
+
+
 
     @Column(nullable = false)
     private String phoneNum;
@@ -65,7 +73,6 @@ public class User {
         this.middleName = userDTO.getMiddleName();
         this.email = userDTO.getEmail();
         this.phoneNum = userDTO.getPhoneNum();
-
 
     }
 
@@ -149,5 +156,21 @@ public class User {
 
     public void setBusinessList(Set<Business> businessList) {
         this.businessList = businessList;
+    }
+
+    public Set<Record> getRecordList() {
+        return recordList;
+    }
+
+    public void setRecordList(Set<Record> recordList) {
+        this.recordList = recordList;
+    }
+
+    public Set<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(Set<Product> productList) {
+        this.productList = productList;
     }
 }
