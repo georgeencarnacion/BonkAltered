@@ -13,33 +13,8 @@
 </head>
 <body>
 
-<nav class="side-bar">
-    <div class="logo">
-        <i class='bx bx-package'></i>
-    </div>
+<nav th:replace="fragments/AdminHeader" :: headerAuthenticated></nav>
 
-    <ul class="nav-list">
-
-
-        <li class="nav-item">
-
-            <a href="Inventory.html" class="nav-link">
-                <i class='bx bx-table'></i>
-                <span class="link-text">Businesses</span>
-            </a>
-
-        </li>
-
-        <li class="nav-item">
-
-            <a href="index.html" class="nav-link">
-                <i class='bx bx-exit'></i>
-                <span class="link-text">Sign out</span>
-            </a>
-
-        </li>
-    </ul>
-</nav>
 <div class="inventory">
 
     <table id="DataTable">

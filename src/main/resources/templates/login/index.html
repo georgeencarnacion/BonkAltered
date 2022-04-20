@@ -19,7 +19,7 @@
   </div>
 
 
-  <form th:method="POST" th:action="@{~/login}" th:object="${user}">
+  <form class="login" th:method="POST" th:action="@{~/login}" th:object="${user}">
 
     <h1>Sign in to Merkante</h1>
 
@@ -35,7 +35,7 @@
 
   </form>
 
-  <form th:method="POST" th:action="@{~/register}" th:object="${user}">
+  <form class="register" th:method="POST" th:action="@{~/register}" th:object="${user}">
 
     <h1>Create an Account</h1>
 
