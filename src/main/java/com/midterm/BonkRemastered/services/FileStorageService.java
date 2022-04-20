@@ -9,5 +9,6 @@ public interface FileStorageService {
 
     public void save(MultipartFile file);
 
-    /*public Resource load(String filename);*/
+
+    public Resource load(String filename);
 }

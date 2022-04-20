@@ -21,9 +21,6 @@ public class Business {
     @Column(nullable = false)
     private String location;
 
-    @Column(nullable = false)
-    private String proofofBusiness;
-
     @Column
     private String imageLoc;
 
@@ -39,7 +36,6 @@ public class Business {
         this.owner = new User(businessDTO.getOwner());
         this.businessName = businessDTO.getBusinessName();
         this.location = businessDTO.getLocation();
-        this.proofofBusiness = businessDTO.getProofofBusiness();
 
 
     }
@@ -76,13 +72,6 @@ public class Business {
         this.location = location;
     }
 
-    public String getProofofBusiness() {
-        return proofofBusiness;
-    }
-
-    public void setProofofBusiness(String proofofBusiness) {
-        this.proofofBusiness = proofofBusiness;
-    }
 
     public String getImageLoc() {
         return imageLoc;

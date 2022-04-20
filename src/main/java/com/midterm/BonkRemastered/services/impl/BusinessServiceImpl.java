@@ -29,19 +29,19 @@ public class BusinessServiceImpl implements BusinessService {
 
 
     @Override
-    public void add(BusinessDTO business) {
-        Business businesses = new Business(business);
+    public void add(BusinessDTO bussinessDTO) {
+        Business business = new Business(bussinessDTO);
 
-        if (business.getImage() != null) {
-            fileStorageService.save(business.getImage());
-            businesses.setImageLoc(business.getImage().getOriginalFilename());
+        if (bussinessDTO.getImage() != null) {
+            fileStorageService.save(bussinessDTO.getImage());
+            business.setImageLoc(bussinessDTO.getImage().getOriginalFilename());
 
         }
-        businessRepository.save(businesses);
+        businessRepository.save(business);
     }
     @Override
     public BusinessDTO get(Long id) {
-        return new BusinessDTO(businessRepository.findByOwner(id));
+        return new BusinessDTO(businessRepository.findById(id).get());
     }
 
     @Override

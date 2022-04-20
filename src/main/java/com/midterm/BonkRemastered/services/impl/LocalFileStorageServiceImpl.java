@@ -2,11 +2,14 @@ package com.midterm.BonkRemastered.services.impl;
 
 
 import com.midterm.BonkRemastered.services.FileStorageService;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,5 +38,19 @@ public class LocalFileStorageServiceImpl implements FileStorageService {
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }
+    }
+
+    @Override
+    public Resource load(String filename) {
+       Path filePath = uploads.resolve((filename));
+
+       try {
+           Resource resource = new UrlResource(filePath.toUri());
+           return resource;
+
+       } catch (MalformedURLException e) {
+           e.printStackTrace();
+       }
+       return null;
     }
 }

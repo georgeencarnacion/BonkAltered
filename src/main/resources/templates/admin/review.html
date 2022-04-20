@@ -14,6 +14,7 @@
 <div class="view-business">
     <tr th:each="business : ${user.businessList}">
 
+        <!--<input type="hidden" name="id" th:field="*{id}">-->
         <h1>Business Information</h1>
         <span>Business Name</span>
         <p th:text="${business.businessName}"/>
@@ -21,47 +22,32 @@
         <span>Location</span>
         <p th:text="${business.location}"/>
 
-        <span>Proof of Business</span>
-        <p th:text="${business.proofofBusiness}"/>
+        <span>Image</span>
+        <img th:src="@{~/upload/{id}/image(id=*{id})}"/>
+
     </tr>
 
 
-        <div class="user-info">
-            <form th:method="PUT" th:action="@{~/admin}" th:object="${user}" class="user-form">
-                <h1>User Information</h1>
+    <div class="user-info">
+        <form th:method="GET" th:action="@{~/admin}" th:object="${user}" class="user-form">
+            <h1>User Information</h1>
 
-                <input type="hidden" name="id" th:field="*{id}">
-                <span>First Name</span>
-                <input type="text" id="firstName" th:field="*{firstName}" placeholder="">
+            <input type="hidden" name="id" th:field="*{id}">
+            <span>First Name</span>
+            <p th:text="${user.firstName}"/>
+            <span>Middle Name</span>
+            <p th:text="${user.middleName}"/>
 
-                <span>Middle Name</span>
-                <input type="text" id="middleName" th:field="*{middleName}" placeholder="">
+            <span>Last Name</span>
+            <p th:text="${user.lastName}"/>
 
-                <span>Last Name</span>
-                <input type="text" id="lastName" th:field="*{lastName}" placeholder="">
+            <span>Email</span>
+            <p th:text="${user.email}"/>
 
-                <span>Email</span>
-                <input type="email" id="email" th:field="*{email}" placeholder="">
-
-                <span>Phone Number</span>
-                <input type="number" id="phoneNum" th:field="*{phoneNum}" placeholder="">
-                <input type="hidden" id="password" th:field="*{password}" placeholder="">
-                <input type="hidden" id="newPassword" th:field="*{newPassword}" placeholder="">
-                <span>Business Approval</span>
+            <span>Phone Number</span>
+            <p th:text="${user.phoneNum}"/>
 
 
-                <input type="checkbox" th:field="*{role}" th:value="3" th:text="Approved"/>
-
-<!--                <select id="role" th:field="*{role}">-->
-<!--                    <option th:value="2">Pending</option>-->
-<!--                    <option th:value="3">Approved</option>-->
-<!--                    <option th:value="4">Declined</option>-->
-<!--                </select>-->
-<!--                <input type="checkbox" th:field="*{role}" th:value="2" th:text="Pending">-->
-<!--                <input type="checkbox" th:field="*{role}" th:value="3" th:text="Approved">-->
-<!--                <input type="checkbox" th:field="*{role}" th:value="2" th:text="Declined">-->
-
-                <button type="submit" class="update">Approve Business</button>
 
             </form>
             <form th:method="delete" th:action="@{~/admin}" class="btn-del">

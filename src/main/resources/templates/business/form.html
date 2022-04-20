@@ -11,7 +11,7 @@
 <body>
 <nav th:replace="fragments/HomeHeader" :: headerAuthenticated></nav>
 
-<form th:method="POST" th:action="@{~/business/{id}/(id=${user.id})}" th:object="${business}" class="application">
+<form th:method="POST" th:action="@{~/business/{id}/(id=${user.id})}" th:object="${business}" class="application" enctype="multipart/form-data">
 
 
     <h1>Business Application</h1>
@@ -22,8 +22,8 @@
     <span>Location</span>
     <input type="text" th:field="*{location}" placeholder="Location">
 
-    <span>Proof of Business:</span>
-    <input type="text" th:field="*{proofofBusiness}" placeholder="B.I.R. /D.T.I.">
+    <span>Image</span>
+    <input type="file" id="image" th:field="*{image}">
 
     <button type="submit">Submit</button>
 
