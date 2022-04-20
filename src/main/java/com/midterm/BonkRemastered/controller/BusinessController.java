@@ -33,7 +33,7 @@ public class BusinessController {
     private String adduserBusiness(@PathVariable Long userId, BusinessDTO businessDTO, Model model){
         businessDTO.setOwner(userId);
         businessService.add(businessDTO);
-        return "product/view-inventory";
+        return getUser(userId, model);
     }
 
 }
