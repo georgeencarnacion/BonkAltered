@@ -24,7 +24,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/{id}")
-    private String list(@PathVariable Long id, Model model) {
+    private String getUser(@PathVariable Long id, Model model) {
 
         model.addAttribute("user", userService.get(id));
         model.addAttribute("product", new ProductDTO());
