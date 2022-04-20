@@ -1,6 +1,7 @@
 package com.midterm.BonkRemastered.controller;
 
 import com.midterm.BonkRemastered.dto.BusinessDTO;
+import com.midterm.BonkRemastered.model.User;
 import com.midterm.BonkRemastered.services.BusinessService;
 import com.midterm.BonkRemastered.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,13 @@ public class BusinessController {
     @Autowired
     private BusinessService businessService;
 
+    @GetMapping
+    private String index(Model model){
+        model.addAttribute("user", new User());
+
+        return "/index";
+
+    }
     @GetMapping("/{id}")
     private String getUser(@PathVariable Long id, Model model) {
 
@@ -33,7 +41,7 @@ public class BusinessController {
     private String adduserBusiness(@PathVariable Long userId, BusinessDTO businessDTO, Model model){
         businessDTO.setOwner(userId);
         businessService.add(businessDTO);
-        return "business/form";
+        return index(model);
     }
 
 }

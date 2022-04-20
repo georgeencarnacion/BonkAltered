@@ -34,7 +34,7 @@
             <td th:text="|₱ ${product.price}|"></td>
             <td th:text="|₱ ${product.resellPrice}|"></td>
 
-            <td ><a class="add" th:href="@{~/inventory/{id}(id=${product.productId})}">View</a>
+            <td ><a class="add" th:href="@{~/inventory/{id}/view(id=${product.productId})}">View</a>
 
             </td>
         </tr>
