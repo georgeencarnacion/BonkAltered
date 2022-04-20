@@ -4,6 +4,7 @@ import com.midterm.BonkRemastered.dto.BusinessDTO;
 import com.midterm.BonkRemastered.model.Business;
 import com.midterm.BonkRemastered.repository.BusinessRepository;
 import com.midterm.BonkRemastered.services.BusinessService;
+import com.midterm.BonkRemastered.services.FileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,16 +16,9 @@ import java.util.stream.StreamSupport;
 public class BusinessServiceImpl implements BusinessService {
 
     @Autowired
+    private FileStorageService fileStorageService;
+    @Autowired
     private BusinessRepository businessRepository;
-
-
-    @Override
-    public void add(BusinessDTO business) {
-
-        businessRepository.save(new Business(business));
-    }
-
-    ;
 
     @Override
     public List<BusinessDTO> list() {
@@ -34,6 +28,17 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
 
+    @Override
+    public void add(BusinessDTO business) {
+        Business businesses = new Business(business);
+
+        if (business.getImage() != null) {
+            fileStorageService.save(business.getImage());
+            businesses.setImageLoc(business.getImage().getOriginalFilename());
+
+        }
+        businessRepository.save(businesses);
+    }
     @Override
     public BusinessDTO get(Long id) {
         return new BusinessDTO(businessRepository.findByOwner(id));
