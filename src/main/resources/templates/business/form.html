@@ -28,6 +28,11 @@
 
 
     <h1>Business Application</h1>
+    <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+        <ul>
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+        </ul>
+    </div>
     <input type="hidden" name="owner" th:field="*{businessId}">
     <span>Business Name:</span>
     <input type="text" th:field="*{businessName}" placeholder="Business Name">
@@ -38,7 +43,10 @@
     <span>Proof of Business:</span>
     <input type="text" th:field="*{proofofBusiness}" placeholder="B.I.R. /D.T.I.">
 
-    <button type="submit">Submit</button>
+<!--    <span>Image</span>-->
+<!--    <input type="file" id="image" th:field="*{image}">-->
+
+    <a th:href="@{~/inventory/{id}/(id=${#authentication.principal.Id})}"><button type="submit">Submit</button></a>
 
 </form>
 
