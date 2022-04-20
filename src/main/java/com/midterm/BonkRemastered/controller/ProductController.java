@@ -5,6 +5,7 @@ import com.midterm.BonkRemastered.dto.ProductDTO;
 import com.midterm.BonkRemastered.dto.UserDTO;
 import com.midterm.BonkRemastered.services.BusinessService;
 import com.midterm.BonkRemastered.services.ProductService;
+import com.midterm.BonkRemastered.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,13 @@ import javax.validation.Valid;
 public class ProductController {
 
     @Autowired
-    BusinessService userService;
+    private UserService userService;
+
     @Autowired
     private ProductService productService;
 
     @GetMapping("/{id}")
-    private String getUser(@PathVariable Long id, Model model) {
+    private String list(@PathVariable Long id, Model model) {
 
         model.addAttribute("user", userService.get(id));
         model.addAttribute("product", new ProductDTO());

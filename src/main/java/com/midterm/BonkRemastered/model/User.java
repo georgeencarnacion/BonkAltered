@@ -35,7 +35,7 @@ public class User {
     private Set<Record> recordList;
 
 
-    @OneToMany(targetEntity = Product.class,  mappedBy = "uniqueId", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany( mappedBy = "uniqueId", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Product> productList;
 
     @ManyToOne
