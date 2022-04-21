@@ -4,6 +4,7 @@ import com.midterm.BonkRemastered.dto.RecordDTO;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Month;
 
 @Entity
 public class Record {
@@ -13,16 +14,21 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long recordId;
 
-
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
     @Column(nullable = false)
-    private LocalDate date;
+    private Month month;
 
     @Column(nullable = false)
     private Integer revenue;
+
+    @Column(nullable = false)
+    private Integer qty;
+
+    @Column(nullable = false)
+    private Integer inventory;
 
     @Column(nullable = false)
     private Integer cogs;
@@ -46,7 +52,7 @@ public class Record {
 
         this.recordId = recordDTO.getRecordId();
         this.user = new User(recordDTO.getUser());
-        this.date = recordDTO.getDate();
+        this.month = recordDTO.getMonth();
         this.revenue = recordDTO.getRevenue();
         this.cogs = recordDTO.getCogs();
         this.expenses = recordDTO.getExpenses();
@@ -69,12 +75,12 @@ public class Record {
         this.user = user;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public Month getMonth() {
+        return month;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(Month date) {
+        this.month = date;
     }
 
     public Integer getRevenue() {

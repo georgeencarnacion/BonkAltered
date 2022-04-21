@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<nav th:replace="fragments/HomeHeader" :: headerAuthenticated></nav>
+<nav th:replace="fragments/HomeHeader :: headerNonAuthenticated"></nav>
 
 <form th:method="POST" th:action="@{~/business/{id}/(id=${user.id})}" th:object="${business}" class="application" enctype="multipart/form-data">
 
@@ -24,6 +24,7 @@
 
     <span>Image</span>
     <input type="file" id="image" th:field="*{image}">
+
 
     <button type="submit">Submit</button>
 

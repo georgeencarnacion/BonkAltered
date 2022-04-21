@@ -14,7 +14,6 @@
 <div class="view-business">
     <tr th:each="business : ${user.businessList}">
 
-        <!--<input type="hidden" name="id" th:field="*{id}">-->
         <h1>Business Information</h1>
         <span>Business Name</span>
         <p th:text="${business.businessName}"/>
@@ -22,8 +21,9 @@
         <span>Location</span>
         <p th:text="${business.location}"/>
 
-        <span>Image</span>
-        <img th:src="@{~/upload/{id}/image(id=*{id})}"/>
+        <span>Proof Of Business</span>
+        <img th:src="@{/upload/{id}/image(id=*{id})}"/>
+
 
     </tr>
 

@@ -12,6 +12,8 @@ public interface UserService {
 
     UserDTO get(Long id);
 
+    UserDTO get(String email);
+
     void update(UserDTO updatedUser);
 
     void delete(Long id);
@@ -19,5 +21,8 @@ public interface UserService {
     UserDTO validateUser(String emailAddress, String password);
 
     void updateBusiness(UserDTO updatedUser);
+
+    void updatePass(UserDTO updateUser);
+
 }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -13,8 +13,7 @@
 </head>
 <body>
 
-<nav th:replace="fragments/InventoryHeader" :: headerAuthenticated></nav>
-
+<header th:replace="fragments/InventoryHeader" :: headerAuthenticated></header>
 
 <div class="inventory">
     <table id="DataTable">
@@ -28,13 +27,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="product : ${products}">
+        <tr th:each="product : ${user.productList}">
             <td th:text="${product.productName}"></td>
             <td th:text="${product.quantity}"></td>
             <td th:text="|₱ ${product.price}|"></td>
             <td th:text="|₱ ${product.resellPrice}|"></td>
 
-            <td ><a class="add" th:href="@{~/inventory/{id}(id=${product.productId})}">View</a>
+            <td ><a class="add" th:href="@{~/inventory/{id}/view(id=${product.productId})}">View</a>
 
             </td>
         </tr>

@@ -47,6 +47,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO get(String email){return new UserDTO(userRepository.findByEmail(email));}
+
+    @Override
     public void update(UserDTO updatedUser) {
         User user = new User(updatedUser);
         userRepository.save(user);
@@ -81,6 +84,14 @@ public class UserServiceImpl implements UserService {
         user.setPhoneNum(previousUser.getPhoneNum());
 
 
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updatePass(UserDTO updateUser)
+    {
+        User user = userRepository.findByEmail(updateUser.getEmail());
+        user.setPasswordHash((passwordEncoder.encode(updateUser.getPassword())));
         userRepository.save(user);
     }
 }
