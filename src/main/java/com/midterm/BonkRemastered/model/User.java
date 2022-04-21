@@ -43,6 +43,7 @@ public class User {
     private Role role;
 
 
+
     @Column(nullable = false)
     private String phoneNum;
 
