@@ -4,12 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form.css">
-    <title>Apply Now!</title>
+    <title>Merkante Home</title>
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-<nav th:replace="fragments/HomeHeader" :: headerUnauthenticated></nav>
 
+<header th:replace="fragments/HomeHeader :: headerNoBusAuthenticated"></header>
+
+<div class="banner">
+    <div class="info">
+        <h1>Greetings <span th:text="${#authentication.principal.firstName}"/> <span th:text="${#authentication.principal.lastName}"/>!</h1>
+        <p>You may register your business or view your products right on our navbar</p>
+    </div>
+</div>
+
+<div class="box-icon">
+    <img src="css/images/box.png" alt="">
+</div>
+
+<div class="rectangle">
+    <div class="stocks-icon">
+    </div>
+
+    <div class="info">
+        <h1>No more painful integrations.</h1>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.
+            <br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua."
+        </p>
+    </div>
+</div>
+
+<div class="about" id="About">
+    <h1>A unique value proposition <br>
+        Everything you need with a top-notch user experience.
+    </h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+        <br>
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat."
+    </p>
+</div>
+
+<footer>
+        <span>Lorem ipsum dolor sit amet <br>
+            No credit card required - Instant access
+        </span>
+    <a th:href="@{~/business/{id}/(id=${#authentication.principal.Id})}" ><button>Start Now!</button></a>
+</footer>
 
 </body>
 </html>

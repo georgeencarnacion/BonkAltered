@@ -2,6 +2,7 @@ package com.midterm.BonkRemastered.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,6 +18,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(customAuthenticationProvider);
+
     }
 
     @Override
@@ -27,13 +29,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/css/**").permitAll()
                 // Here, we are allowing access to the landing, and register pages to anonymous users only
-                .antMatchers("/login*", "/register*", "/css/**")
+                .antMatchers("/","/login*", "/register*","/forgot*")
                 .anonymous()
                 // Here, we are allowing access to user pages to the user role only
-                .antMatchers("/home*").hasRole("USER")
+                .antMatchers("/admin*").hasRole("ADMIN")
                 // Here, we are allowing access to product pages to the admin and user roles only
-                .antMatchers("/admin*", "/inventory*", "css/form.css*").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/product*", "/business*","/home*").hasAnyRole("ADMIN", "USER")
 
 //                 Any other requests should be authenticated
                 .anyRequest()

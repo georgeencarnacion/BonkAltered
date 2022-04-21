@@ -10,12 +10,12 @@
 </head>
 <body>
 
-<nav th:replace="fragments/InventoryHeader" :: headerAuthenticated></nav>
+<header th:replace="fragments/InventoryHeader :: headerAuthenticated"></header>
 
 
 <div class="addInventory">
 
-    <form class="addform" th:method="POST" th:action="@{~/inventory/{id}/(id=${#authentication.principal.Id})}" th:object="${product}">
+    <form class="addForm" th:method="POST" th:action="@{~/inventory/{id}/(id=${#authentication.principal.Id})}" th:object="${product}">
 
         <h1>Add a product</h1>
 

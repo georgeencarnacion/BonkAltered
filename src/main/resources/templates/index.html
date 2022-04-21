@@ -9,20 +9,7 @@
 </head>
 <body>
 
-<nav>
-    <a href="#index.html">
-        <h1>Merkante</h1>
-    </a>
-
-    <div class="details">
-        <a href="#About" >About</a>
-        &nbsp;
-        <a href="Contact.html" >Contact Us</a>
-        &nbsp;
-    </div>
-
-    <a th:href="@{~/inventory/{id}(id=${#authentication.principal.Id})}"class="signin">Product</a>
-</nav>
+<header th:replace="fragments/HomeHeader :: headerUnauthenticated"></header>
 
 <div class="banner">
     <div class="info">
@@ -30,12 +17,12 @@
             Amazing Software</h1>
         <p>The only platform you will ever need to help run your business: <br>
             integrated apps, kept simple, and loved by millions of happy users.</p>
-        <button onclick="window.location.href='Login.html';">Start Now - It's Free</button>
+        <a th:href="@{~/login}" ><button>Start Now - It's Free</button></a>
     </div>
 </div>
 
 <div class="box-icon">
-    <img src="css/images/box.png" alt="">
+    <img src="../static/css/images/box.png" alt="">
 </div>
 
 <div class="rectangle">
@@ -73,7 +60,7 @@
         <span>Lorem ipsum dolor sit amet <br>
             No credit card required - Instant access
         </span>
-    <button onclick="window.location.href='Login.html';">Start Now!</button>
+    <a th:href="@{~/login}" >Start Now!</a>
 </footer>
 
 </body>
