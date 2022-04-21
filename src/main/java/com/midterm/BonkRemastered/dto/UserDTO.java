@@ -2,12 +2,15 @@ package com.midterm.BonkRemastered.dto;
 
 
 import com.midterm.BonkRemastered.model.User;
+import com.midterm.BonkRemastered.security.constraint.FieldMatch;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@FieldMatch(first = "password", second = "newPassword", message = "The password fields don't match")
 public class UserDTO {
 
     private Long Id;
@@ -20,16 +23,15 @@ public class UserDTO {
 
     private String email;
 
-
     private String role;
 
     private String phoneNum;
 
+    @NotEmpty
     private String password;
 
-
-    private String cPassword;
-
+    @NotEmpty
+    private String newPassword;
 
     private Set<BusinessDTO> businessList;
 
@@ -37,11 +39,8 @@ public class UserDTO {
 
     private Set<ProductDTO> productList;
 
-
     public UserDTO() {
     }
-
-
 
     public UserDTO(User user) {
         this.Id = user.getId();
@@ -138,12 +137,12 @@ public class UserDTO {
         this.role = role;
     }
 
-    public String getcPassword() {
-        return cPassword;
+    public String getNewPassword() {
+        return newPassword;
     }
 
-    public void setcPassword(String cPassword) {
-        this.cPassword = cPassword;
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 
     public Set<BusinessDTO> getBusinessList() {

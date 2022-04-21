@@ -26,8 +26,15 @@ public class RegisterController {
 
     @PostMapping
     private String addUser(UserDTO user, Model model) {
-        user.setRole(USER_ROLE);
-        userService.add(user);
+        String password = user.getPassword();
+        String newPassword = user.getNewPassword();
+
+        if(newPassword.equals(password)){
+            user.setRole(USER_ROLE);
+            userService.add(user);
+            return "redirect:user/login";
+        }
+
         return "redirect:user/login";
     }
 
