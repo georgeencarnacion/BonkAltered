@@ -12,27 +12,24 @@
 
 <header th:replace="fragments/InventoryHeader :: headerAuthenticated"></header>
 
-
 <h1 class="title">Monthly Records</h1>
 
 <div class="records">
 
-    <div class="record" th:each="record: ${user.recordList}">
-        <h2 th:text="record.month"></h2>
-        <ul>
-            <li th:text="'Expenses: ' record.expenses">Expenses: </li>
-            <li th:text="record.expenses">Income: </li>
-            <li>Qty. of Goods Sold: 250</li>
-        </ul>
-    </div>
     <div class="record">
-        <h2>February</h2>
-        <ul>
-            <li>Expenses: Php 2,000</li>
-            <li>Income: Php 4,000</li>
-            <li>Qty. of Goods Sold: 100</li>
-        </ul>
+        <tr th:each="record : ${user.recordList}">
+            <h2 th:text="${record.month}"/>
+            <ul>
+                <li>Revenue: <p th:text="${record.revenue}"/></li>
+                <li>Cost of Goods Sold: <p th:text="${record.cogs}"/></li>
+                <li>Expenses: <p th:text="${record.expenses}"/></li>
+                <li>Net Profit: <p th:text="${record.netProfit}"/></li>
+
+                <a class="add" th:href="@{~/record/{id}/compute(id=${record.recordId})}">View</a>
+            </ul>
+        </tr>
     </div>
+
 
 </div>
 </body>

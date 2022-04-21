@@ -22,6 +22,10 @@ public class Product {
     @Column(nullable = false)
     private Long quantity;
 
+
+    @Column(nullable = false)
+    private Long totalInventory;
+
     @Column(nullable = false)
     private Long price;
 
@@ -38,6 +42,7 @@ public class Product {
         this.uniqueId = new User(productDTO.getUniqueId());
         this.productName = productDTO.getProductName();
         this.quantity = productDTO.getQuantity();
+        this.totalInventory = productDTO.getTotalInventory();
         this.price = productDTO.getPrice();
         this.resellPrice = productDTO.getResellPrice();
     }
@@ -92,6 +97,14 @@ public class Product {
 
     public void setResellPrice(Long resellPrice) {
         this.resellPrice = resellPrice;
+    }
+
+    public Long getTotalInventory() {
+        return totalInventory;
+    }
+
+    public void setTotalInventory(Long totalInventory) {
+        this.totalInventory = totalInventory;
     }
 
 }

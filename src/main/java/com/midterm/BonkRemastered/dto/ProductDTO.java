@@ -16,6 +16,9 @@ public class ProductDTO {
     @PositiveOrZero(message = "Quantity must not be a negative number")
     private long quantity;
 
+    @PositiveOrZero(message = "Quantity must not be a negative number")
+    private long totalInventory;
+
 
 
     @PositiveOrZero(message = "Price must not be a negative number")
@@ -33,6 +36,7 @@ public class ProductDTO {
         this.uniqueId = product.getUniqueId().getId();
         this.productName = product.getProductName();
         this.quantity = product.getQuantity();
+        this.totalInventory = product.getTotalInventory();
         this.price = product.getPrice();
         this.resellPrice = product.getResellPrice();
     }
@@ -74,6 +78,14 @@ public class ProductDTO {
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public Long getTotalInventory() {
+        return totalInventory;
+    }
+
+    public void setTotalInventory(Long totalInventory) {
+        this.totalInventory = totalInventory;
     }
 
     public long getResellPrice() {
