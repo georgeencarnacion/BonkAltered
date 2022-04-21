@@ -21,8 +21,9 @@
         <span>Location</span>
         <p th:text="${business.location}"/>
 
-        <span>Proof of Business</span>
-        <p th:text="${business.proofofBusiness}"/>
+        <span>Proof Of Business</span>
+        <img th:src="@{/upload/{id}/image(id=*{id})}"/>
+
 
     </tr>
 

@@ -7,7 +7,7 @@ import java.util.List;
 public interface BusinessService {
     List<BusinessDTO> list();
 
-    void add(BusinessDTO business); //1:04:46
+    void add(BusinessDTO business);
 
     BusinessDTO get(Long id);
 

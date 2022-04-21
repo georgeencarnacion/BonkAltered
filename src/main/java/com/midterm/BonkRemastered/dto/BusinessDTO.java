@@ -13,11 +13,9 @@ public class BusinessDTO {
 
     private String location;
 
-    private String proofofBusiness;
-
     private MultipartFile image;
 
-    /*private String imageLoc;*/
+    private String imageLocation;
 
     public BusinessDTO(){}
 
@@ -28,8 +26,7 @@ public class BusinessDTO {
         this.owner = business.getOwner().getId();
         this.businessName = business.getBusinessName();
         this.location = business.getLocation();
-        this.proofofBusiness = business.getProofofBusiness();
-
+        this.imageLocation = business.getImageLoc();
 
     }
 
@@ -66,19 +63,19 @@ public class BusinessDTO {
         this.location = location;
     }
 
-    public String getProofofBusiness() {
-        return proofofBusiness;
-    }
-
-    public void setProofofBusiness(String proofofBusiness) {
-        this.proofofBusiness = proofofBusiness;
-    }
-
     public MultipartFile getImage() {
         return image;
     }
 
     public void setImage(MultipartFile image) {
         this.image = image;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
     }
 }
