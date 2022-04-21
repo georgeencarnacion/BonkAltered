@@ -2,20 +2,30 @@ package com.midterm.BonkRemastered.dto;
 
 import com.midterm.BonkRemastered.model.Record;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
+import java.time.Month;
 
 public class RecordDTO {
 
-
-
     private Long recordId;
 
-
     private Long user;
-    private LocalDate date;
+
+    @NotBlank(message = "Month is required")
+    private Month month;
+
+    @PositiveOrZero(message = "Revenue must not be a negative number")
     private Integer revenue;
+
+    @PositiveOrZero(message = "Cost of Goods must not be a negative number")
     private Integer cogs;
+
+    @PositiveOrZero(message = "Expenses must not be a negative number")
     private Integer expenses;
+
+    @PositiveOrZero(message = "Income must not be a negative number")
     private Integer netProfit;
 
     public RecordDTO(){};
@@ -24,7 +34,7 @@ public class RecordDTO {
 
         this.recordId = record.getRecordId();
         this.user = record.getUser().getId();
-        this.date = record.getDate();
+        this.month = record.getMonth();
         this.revenue = record.getRevenue();
         this.cogs = record.getCogs();
         this.expenses = record.getExpenses();
@@ -50,12 +60,12 @@ public class RecordDTO {
         this.user = user;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public Month getMonth() {
+        return month;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setMonth(Month month) {
+        this.month = month;
     }
 
     public Integer getRevenue() {

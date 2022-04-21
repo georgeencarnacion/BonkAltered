@@ -17,11 +17,11 @@
 
 <div class="records">
 
-    <div class="record">
-        <h2>January</h2>
+    <div class="record" th:each="record: ${user.recordList}">
+        <h2 th:text="record.month"></h2>
         <ul>
-            <li>Expenses: Php 5,000</li>
-            <li>Income: Php 10,000</li>
+            <li th:text="'Expenses: ' record.expenses">Expenses: </li>
+            <li th:text="record.expenses">Income: </li>
             <li>Qty. of Goods Sold: 250</li>
         </ul>
     </div>
