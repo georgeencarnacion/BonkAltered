@@ -29,6 +29,7 @@ public class BusinessController {
         return "/index";
 
     }
+
     @GetMapping("/{id}")
     private String getUser(@PathVariable Long id, Model model) {
 

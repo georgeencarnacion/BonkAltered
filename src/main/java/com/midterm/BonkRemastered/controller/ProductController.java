@@ -54,19 +54,20 @@ public class ProductController {
     @GetMapping("/{id}/view")
     private String get(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.get(id));
-        return "inventory/view-product";
+        return "product/view-product";
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     private String update(@PathVariable Long id, ProductDTO product, Model model) {
-        model.addAttribute("user", userService.get(id));
+
+        product.setUniqueId(id);
         productService.update(product);
         return list(id, model);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     private String delete(@PathVariable Long id, ProductDTO product, Model model) {
-        model.addAttribute("user", userService.get(id));
+        product.setUniqueId(id);
         productService.delete(product.getProductId());
         return list(id, model);
     }

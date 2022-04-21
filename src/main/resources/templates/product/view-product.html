@@ -15,30 +15,32 @@
 
 <div class="addInventory">
 
-    <form class="addform" th:method="GET" th:action="@{~/inventory/{id}/view(id=${product.productId})}" th:object="${product}">
-        <input type="hidden" name="id" th:text="${productId}">
+    <form class="addform" th:method="PUT" th:action="@{~/inventory/{id}/(id=${#authentication.principal.Id})}" th:object="${product}">
+        <input type="hidden" name="id" th:field="${product.productId}">
 
         <h1>Update a product</h1>
 
         <span>Name of Product</span>
-        <input type="text" id="productName" th:text="${productName}" placeholder="">
+        <input type="text" id="productName" th:field="${product.productName}" placeholder="">
 
         <span>Quantity:</span>
-        <input type="number" id="quantity" th:text="${quantity}"placeholder="">
+        <input type="number" id="quantity" th:field="${product.quantity}"placeholder="">
 
         <span>Price:</span>
-        <input type="number" id="price" th:text="${price}" placeholder="">
+        <input type="number" id="price" th:field="${product.price}" placeholder="">
 
         <span>Resell Price:</span>
-        <input type="number" id="resellPrice" th:text="${resellPrice}" placeholder="">
+        <input type="number" id="resellPrice" th:field="${product.resellPrice}" placeholder="">
 
         <button type="submit">Update Product</button>
 
     </form>
-<!--    <form class="del" th:method="delete" th:action="@{~/inventory}">-->
-<!--        <input type="hidden" name="id"  th:field="*{product.productId}">-->
-<!--        <button type="submit" class="delete">Delete</button>-->
-<!--    </form>-->
+    <br>
+    <br>
+    <form class="del" th:method="delete" th:action="@{~/inventory/{id}/(id=${#authentication.principal.Id})}">
+        <input type="hidden" name="id"  th:field="*{product.productId}">
+        <button type="submit" class="delete">Delete</button>
+    </form>
 
 </div>
 
