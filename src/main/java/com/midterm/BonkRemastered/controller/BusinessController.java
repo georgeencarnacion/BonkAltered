@@ -1,8 +1,10 @@
 package com.midterm.BonkRemastered.controller;
 
 import com.midterm.BonkRemastered.dto.BusinessDTO;
+import com.midterm.BonkRemastered.dto.UserDTO;
 import com.midterm.BonkRemastered.services.BusinessService;
 import com.midterm.BonkRemastered.services.FileStorageService;
+import com.midterm.BonkRemastered.services.SmsSender;
 import com.midterm.BonkRemastered.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -28,6 +30,9 @@ public class BusinessController {
     private BusinessService businessService;
 
     @Autowired
+    private SmsSender smsSender;
+
+    @Autowired
     private FileStorageService fileStorageService;
 
     @GetMapping("/{id}")
@@ -42,6 +47,7 @@ public class BusinessController {
     private String adduserBusiness(@PathVariable Long userId, BusinessDTO businessDTO, Model model){
         businessDTO.setOwner(userId);
         businessService.add(businessDTO);
+//        smsSender.sendSms(businessDTO, userId);
         return "business/ThankYou";
     }
 

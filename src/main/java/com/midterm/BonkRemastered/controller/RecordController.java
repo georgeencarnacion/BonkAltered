@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/record")
@@ -32,11 +34,24 @@ public class RecordController {
     @Autowired
     private RecordRepository recordRepository;
 
+    private RecordDTO record;
+
     @GetMapping("/{id}")
     private String list(@PathVariable Long id, Model model) {
 
         model.addAttribute("user", userService.get(id));
         model.addAttribute("record", new RecordDTO());
+
+        record.getRecordId();
+
+        Map<String, Long> data = new LinkedHashMap<String, Long>();
+        data.put("Revenue", record.getRevenue());
+        data.put("Cost of Goods", record.getCogs());
+        data.put("Expenses", record.getExpenses());
+        data.put("Net Profit", record.getNetProfit());
+        model.addAttribute("keySet", data.keySet());
+        model.addAttribute("values", data.values());
+
         return "product/view-record";
     }
 
@@ -48,9 +63,7 @@ public class RecordController {
     //this is for the expense
     @PostMapping("/{id}")
     private String add(@Valid @ModelAttribute("product") @PathVariable Long id,  RecordDTO record, Model model) {
-
         record.setUser(id);
-
         record.setMonth(new SimpleDateFormat("MMM").format(Calendar.getInstance().getTime()));
         record.setCogs(0);
         record.setRevenue(0);

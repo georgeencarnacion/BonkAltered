@@ -12,19 +12,15 @@ public class SmsRequest {
     @NotBlank
     private String message;
 
-    public SmsRequest(String phoneNumber, String message){
-        this.phoneNumber = phoneNumber;
+    public SmsRequest(@JsonProperty("phoneNumber") String phoneNumber,@JsonProperty("message") String message){
         this.message = message;
     }
 
     public String getPhoneNumber(){
-        String phoneNum = new UserDTO().getPhoneNum();
-        phoneNumber = phoneNum;
         return phoneNumber;
     }
 
     public String getMessage() {
-        message = "You have registered for Merkante! if this was not you then please contact support.";
         return message;
     }
 

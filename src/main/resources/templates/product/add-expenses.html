@@ -15,16 +15,6 @@
 
 <div class="expenses">
 
-    <form action="calculate">
-
-        <h1>Expenses</h1>
-
-        <span>Expenses:</span>
-        <input type="number" placeholder="Additional Expenses?">
-
-        <button type="submit">Get Record</button>
-
-    </form>
 
     <form class="addForm" th:method="POST" th:action="@{~/record/{id}(id=${#authentication.principal.Id})}" th:object="${record}">
 

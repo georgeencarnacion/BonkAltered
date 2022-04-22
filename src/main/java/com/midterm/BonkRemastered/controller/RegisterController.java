@@ -2,6 +2,7 @@ package com.midterm.BonkRemastered.controller;
 
 import com.midterm.BonkRemastered.dto.SmsRequest;
 import com.midterm.BonkRemastered.dto.UserDTO;
+import com.midterm.BonkRemastered.services.SmsSender;
 import com.midterm.BonkRemastered.services.TwilioService;
 import com.midterm.BonkRemastered.services.UserService;
 import com.midterm.BonkRemastered.services.impl.TwilioSmsSender;
@@ -25,7 +26,7 @@ public class RegisterController {
     private UserService userService;
 
     @Autowired
-    private TwilioService twilioService;
+    private SmsSender smsSender;
 
     @GetMapping("/login")
     private String getUserAddForm(Model model) {
@@ -34,14 +35,14 @@ public class RegisterController {
     }
 
     @PostMapping
-    private String addUser(UserDTO user, Model model) {//, SmsRequest smsRequest
+    private String addUser(UserDTO user, Model model) {
         String password = user.getPassword();
         String newPassword = user.getNewPassword();
 
         if(newPassword.equals(password)){
             user.setRole(USER_ROLE);
             userService.add(user);
-//            twilioService.sendSms(smsRequest);
+//            smsSender.sendSms(user);
             return "redirect:user/login";
         }
 

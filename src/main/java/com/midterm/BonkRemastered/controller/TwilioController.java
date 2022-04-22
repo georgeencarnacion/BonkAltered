@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("someSms")
+@RequestMapping("api/v1/sms")
 public class TwilioController {
 
     private final TwilioService twilioService;
