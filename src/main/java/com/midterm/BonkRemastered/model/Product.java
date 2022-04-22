@@ -20,13 +20,30 @@ public class Product {
     private String productName;
 
     @Column(nullable = false)
+    private String month;
+
+
+    @Column(nullable = false)
     private Long quantity;
+
+
+    @Column(nullable = false)
+    private Long totalInventory;
 
     @Column(nullable = false)
     private Long price;
 
     @Column(nullable = false)
     private Long resellPrice;
+
+    @Column
+    private Long income;
+
+    @Column
+    private Long expenses;
+
+    @Column
+    private Long itemSold;
 
 
     public Product(Long productId) {
@@ -36,10 +53,15 @@ public class Product {
     public Product(ProductDTO productDTO) {
         this.productId = productDTO.getProductId();
         this.uniqueId = new User(productDTO.getUniqueId());
+        this.month = productDTO.getMonth();
         this.productName = productDTO.getProductName();
         this.quantity = productDTO.getQuantity();
+        this.totalInventory = productDTO.getTotalInventory();
         this.price = productDTO.getPrice();
         this.resellPrice = productDTO.getResellPrice();
+        this.income = productDTO.getIncome();
+        this.expenses = productDTO.getExpenses();
+        this.itemSold = productDTO.getItemSold();
     }
 
     public Product() {
@@ -92,6 +114,47 @@ public class Product {
 
     public void setResellPrice(Long resellPrice) {
         this.resellPrice = resellPrice;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+
+    public Long getTotalInventory() {
+        return totalInventory;
+    }
+
+    public void setTotalInventory(Long totalInventory) {
+        this.totalInventory = totalInventory;
+    }
+
+    public Long getIncome() {
+        return income;
+    }
+
+    public void setIncome(Long income) {
+        this.income = income;
+    }
+
+    public Long getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Long expenses) {
+        this.expenses = expenses;
+    }
+
+    public Long getItemSold() {
+        return itemSold;
+    }
+
+    public void setItemSold(Long itemSold) {
+        this.itemSold = itemSold;
     }
 
 }

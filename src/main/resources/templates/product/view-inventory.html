@@ -20,7 +20,9 @@
         <thead>
         <tr>
             <th>Product Name</th>
+            <th>Month</th>
             <th>Qty.</th>
+            <th>Total Inventory</th>
             <th>Price</th>
             <th>Resell Price</th>
             <th>Actions</th>
@@ -29,7 +31,9 @@
         <tbody>
         <tr th:each="product : ${user.productList}">
             <td th:text="${product.productName}"></td>
+            <td th:text="${product.month}"></td>
             <td th:text="${product.quantity}"></td>
+            <td th:text="${product.totalInventory}"></td>
             <td th:text="|₱ ${product.price}|"></td>
             <td th:text="|₱ ${product.resellPrice}|"></td>
 

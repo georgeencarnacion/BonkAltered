@@ -6,6 +6,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Collections;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RecordDTO {
 
@@ -14,19 +18,21 @@ public class RecordDTO {
     private Long user;
 
     @NotBlank(message = "Month is required")
-    private Month month;
+    private String month;
 
     @PositiveOrZero(message = "Revenue must not be a negative number")
-    private Integer revenue;
+    private long revenue;
 
     @PositiveOrZero(message = "Cost of Goods must not be a negative number")
-    private Integer cogs;
+    private long cogs;
 
     @PositiveOrZero(message = "Expenses must not be a negative number")
-    private Integer expenses;
+    private long expenses;
 
     @PositiveOrZero(message = "Income must not be a negative number")
-    private Integer netProfit;
+    private long netProfit;
+
+
 
     public RecordDTO(){};
 
@@ -60,43 +66,45 @@ public class RecordDTO {
         this.user = user;
     }
 
-    public Month getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(Month month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
-    public Integer getRevenue() {
+    public long getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(Integer revenue) {
+    public void setRevenue(long revenue) {
         this.revenue = revenue;
     }
 
-    public Integer getCogs() {
+    public long getCogs() {
         return cogs;
     }
 
-    public void setCogs(Integer cogs) {
+    public void setCogs(long cogs) {
         this.cogs = cogs;
     }
 
-    public Integer getExpenses() {
+    public long getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(Integer expenses) {
+    public void setExpenses(long expenses) {
         this.expenses = expenses;
     }
 
-    public Integer getNetProfit() {
+    public long getNetProfit() {
         return netProfit;
     }
 
-    public void setNetProfit(Integer netProfit) {
+    public void setNetProfit(long netProfit) {
         this.netProfit = netProfit;
     }
+
+
 }

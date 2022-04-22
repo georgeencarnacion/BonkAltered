@@ -2,6 +2,7 @@ package com.midterm.BonkRemastered.services.impl;
 
 import com.midterm.BonkRemastered.dto.ProductDTO;
 import com.midterm.BonkRemastered.model.Product;
+import com.midterm.BonkRemastered.model.User;
 import com.midterm.BonkRemastered.repository.ProductRepository;
 import com.midterm.BonkRemastered.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void update(ProductDTO productDTO) {
-        productRepository.save(new Product(productDTO));
+
+        Product product = new Product(productDTO);
+        Product data = productRepository.findById(productDTO.getProductId()).get();
+        product.setIncome((data.getTotalInventory() - data.getQuantity()) * (data.getResellPrice() - data.getPrice()));
+        product.setExpenses(data.getTotalInventory() * data.getPrice());
+        product.setItemSold(data.getTotalInventory() - data.getQuantity());
+        productRepository.save(product);
     }
 
     @Override
     public void delete(Long id) {
         productRepository.deleteById(id);
     }
+
 }

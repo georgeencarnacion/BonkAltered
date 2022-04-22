@@ -18,7 +18,7 @@
 
             <li class="nav-item">
 
-                <a href="Records.html" class="nav-link">
+                <a th:href="@{~/record/{id}(id=${#authentication.principal.Id})}" class="nav-link">
                     <i class='bx bx-bar-chart-square'></i>
                     <span class="link-text">Records</span>
                 </a>
@@ -27,7 +27,7 @@
 
             <li class="nav-item">
 
-                <a href="Inventory.html" class="nav-link">
+                <a th:href="@{~/inventory/{id}(id=${#authentication.principal.Id})}" class="nav-link">
                     <i class='bx bx-table'></i>
                     <span class="link-text">Inventory</span>
                 </a>
@@ -36,7 +36,7 @@
 
             <li class="nav-item">
 
-                <a href="Expenses.html" class="nav-link">
+                <a th:href="@{~/record/expense}" class="nav-link">
                     <i class='bx bx-calculator'></i>
                     <span class="link-text">Expenses</span>
                 </a>
@@ -52,7 +52,7 @@
             </li>
             <li class="nav-item">
 
-                <a href="index.html" class="nav-link">
+                <a th:href="@{~/logout}" class="nav-link">
                     <i class='bx bx-exit'></i>
                     <span class="link-text">Sign out</span>
                 </a>

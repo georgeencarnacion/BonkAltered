@@ -27,11 +27,13 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Business> businessList;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Record> recordList;
+
 
     @OneToMany( mappedBy = "uniqueId", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Product> productList;
@@ -40,15 +42,24 @@ public class User {
     @JoinColumn(name = "role_id", nullable = true)
     private Role role;
 
+
+
     @Column(nullable = false)
     private String phoneNum;
+
+
 
     @Column(nullable = false)
     private String passwordHash;
 
+
     @Column(updatable = false)
     @CreationTimestamp
     private LocalDateTime dateCreated;
+
+
+
+
 
     public User () {}
 

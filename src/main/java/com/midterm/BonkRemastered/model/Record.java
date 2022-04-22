@@ -5,6 +5,7 @@ import com.midterm.BonkRemastered.dto.RecordDTO;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Set;
 
 @Entity
 public class Record {
@@ -19,26 +20,19 @@ public class Record {
     private User user;
 
     @Column(nullable = false)
-    private Month month;
+    private String month;
 
     @Column(nullable = false)
-    private Integer revenue;
+    private long revenue;
 
     @Column(nullable = false)
-    private Integer qty;
+    private long cogs;
 
     @Column(nullable = false)
-    private Integer inventory;
+    private long expenses;
 
     @Column(nullable = false)
-    private Integer cogs;
-
-    @Column(nullable = false)
-    private Integer expenses;
-
-    @Column(nullable = false)
-    private Integer netProfit;
-
+    private long netProfit;
 
     public Record() {
     }
@@ -75,43 +69,45 @@ public class Record {
         this.user = user;
     }
 
-    public Month getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setDate(Month date) {
-        this.month = date;
+    public void setMonth(String month) {
+        this.month = month;
     }
 
-    public Integer getRevenue() {
+    public long getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(Integer revenue) {
+    public void setRevenue(long revenue) {
         this.revenue = revenue;
     }
 
-    public Integer getCogs() {
+    public long getCogs() {
         return cogs;
     }
 
-    public void setCogs(Integer cogs) {
+    public void setCogs(long cogs) {
         this.cogs = cogs;
     }
 
-    public Integer getExpenses() {
+    public long getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(Integer expenses) {
+    public void setExpenses(long expenses) {
         this.expenses = expenses;
     }
 
-    public Integer getNetProfit() {
+    public long getNetProfit() {
         return netProfit;
     }
 
-    public void setNetProfit(Integer netProfit) {
+    public void setNetProfit(long netProfit) {
         this.netProfit = netProfit;
     }
+
+
 }
