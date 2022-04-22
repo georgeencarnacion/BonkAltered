@@ -37,12 +37,6 @@ public class ProductDTO {
         this.resellPrice = product.getResellPrice();
     }
 
-
-
-
-
-
-
     public Long getProductId() {
         return productId;
     }
