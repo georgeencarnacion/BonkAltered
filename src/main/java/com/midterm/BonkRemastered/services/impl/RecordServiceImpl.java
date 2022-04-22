@@ -12,6 +12,7 @@ import com.midterm.BonkRemastered.repository.UserRepository;
 import com.midterm.BonkRemastered.services.RecordService;
 import com.midterm.BonkRemastered.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
@@ -56,58 +57,7 @@ public class RecordServiceImpl implements RecordService {
         recordRepository.deleteById(id);
     }
 
-    @Override
-    public void compute(Long id, RecordDTO recordDTO, UserDTO userDTO, ProductDTO productDTO){
-
-        User user = new User(userDTO);
-        Record record = new Record(recordDTO);
-        Product product = new Product(productDTO);
 
 
-
-
-        record.setRevenue(product.getTotalInventory() - product.getQuantity() * product.getResellPrice());
-
-        record.setCogs(product.getTotalInventory() + record.getExpenses() - product.getQuantity());
-
-//        record.getNetProfit(record.getRevenue() - record.getExpenses());
-
-
-
-
-        recordRepository.save(new Record(recordDTO));
-
-    }
-
-//    @Override
-//    public Long revenue(Long id, UserDTO userDTO, ProductDTO) {
-//
-//        Record recordL = productRepository.findById(recordDTO.getRecordId()).get();
-//
-//        Long result = null;
-//        Long totalI = null;
-//        Long qty = null;
-//        Long resellP = null;
-//
-//
-//
-//        for (ProductDTO products: userDTO.getProductList()) {
-//            totalI =+ products.getTotalInventory();
-//            return totalI;
-//        }
-//
-//        for (ProductDTO products: userDTO.getProductList()) {
-//            qty =+ products.getQuantity();
-//            return qty;
-//        }
-//
-//        for (ProductDTO products: userDTO.getProductList()) {
-//            resellP =+ products.getResellPrice();
-//            return resellP;
-//        }
-//
-//        result = (totalI - qty) * resellP;
-//        return result;
-//    }
 }
 

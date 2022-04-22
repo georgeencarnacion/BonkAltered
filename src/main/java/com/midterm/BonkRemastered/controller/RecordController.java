@@ -41,17 +41,11 @@ public class RecordController {
 
         model.addAttribute("user", userService.get(id));
         model.addAttribute("record", new RecordDTO());
-
-        record.getRecordId();
-
-        Map<String, Long> data = new LinkedHashMap<String, Long>();
-        data.put("Revenue", record.getRevenue());
-        data.put("Cost of Goods", record.getCogs());
-        data.put("Expenses", record.getExpenses());
-        data.put("Net Profit", record.getNetProfit());
-        model.addAttribute("keySet", data.keySet());
-        model.addAttribute("values", data.values());
-
+//
+//        model.addAttribute("expenses", recordService.get(1L).getExpenses());
+//        model.addAttribute("cogs", recordService.get(1L).getCogs());
+//        model.addAttribute("netProfit", recordService.get(1L).getNetProfit());
+//        model.addAttribute("revenue", recordService.get(1L).getRevenue());
         return "product/view-record";
     }
 

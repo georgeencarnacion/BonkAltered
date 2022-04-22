@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="/css/images/box.ico">
     <title></title>
@@ -15,25 +16,34 @@
 
         <ul class="nav-list">
 
-
             <li class="nav-item">
 
-                <a href="Inventory.html" class="nav-link">
+                <a th:href="@{~/inventory/{id}(id=${#authentication.principal.Id})}" class="nav-link">
                     <i class='bx bx-table'></i>
-                    <span class="link-text">Businesses</span>
+                    <span class="link-text">Inventory</span>
                 </a>
 
-            </li>
-
-            <li class="nav-item">
-
-                <a href="index.html" class="nav-link">
+                <a th:href="@{~/logout}" class="nav-link">
                     <i class='bx bx-exit'></i>
-                    <span class="link-text">Sign out</span>
+                    <span class="link-text" >Sign out</span>
                 </a>
 
             </li>
         </ul>
+    </nav>
+</header>
+<header th:fragment="headerUnauthenticated">
+    <nav>
+        <a href="#index.html">
+            <h1>Merkante</h1>
+        </a>
+
+        <div class="details">
+            &nbsp;
+            <a th:href="@{~/admin}" >View Users</a>
+        </div>
+
+        <a th:href="@{~/logout}" class="signin">Sign Out</a>
     </nav>
 </header>
 </body>

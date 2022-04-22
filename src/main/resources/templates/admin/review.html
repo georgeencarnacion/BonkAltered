@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,23 +9,7 @@
 </head>
 <body>
 
-<nav th:replace="fragments/AdminHeader" :: headerAuthenticated></nav>
-
-<div class="view-business">
-    <tr th:each="business : ${user.businessList}">
-
-        <h1>Business Information</h1>
-        <span>Business Name</span>
-        <p th:text="${business.businessName}"/>
-
-        <span>Location</span>
-        <p th:text="${business.location}"/>
-
-        <span>Proof Of Business</span>
-        <img th:src="@{/upload/{id}/image(id=*{id})}"/>
-
-
-    </tr>
+<header th:replace="fragments/AdminHeader :: headerUnauthenticated"></header>
 
 
     <div class="user-info">
@@ -47,18 +31,28 @@
             <span>Phone Number</span>
             <p th:text="${user.phoneNum}"/>
 
-
-
             </form>
             <form th:method="delete" th:action="@{~/admin}" class="btn-del">
                 <input type="hidden" name="id" th:value="${user.id}">
                 <button type="submit" class="update">Delete</button>
             </form>
 
+        <div class="user" th:each="business : ${user.businessList}">
+
+            <h1>Business Information</h1>
+            &nbsp;
+            <span>Business Name:  <p th:text="${business.businessName}"/></span>
+
+            <span>Location: <p th:text="${business.location}"/></span>
+
+            <span>Proof Of Business: </span>
+            <img th:src="@{/upload/{id}/image(id=*{id})}"/>
+
+
         </div>
 
+    </div>
 
-</div>
 </body>
 </html>
 

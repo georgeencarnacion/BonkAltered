@@ -14,6 +14,7 @@ import com.twilio.type.PhoneNumber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 @Service("twilio")
@@ -53,10 +54,10 @@ public class TwilioSmsSender implements SmsSender {
     }
 
     @Override
-    public void sendSms(BusinessDTO businessDTO, Long id) {
+    public void sendSms(UserDTO userDTO, Authentication authentication) {
 
-        Business getUser = businessRepository.findByOwner(id);
-        PhoneNumber to = new PhoneNumber(getUser.getOwner().getPhoneNum());
+        UserDTO user = (UserDTO) authentication.getPrincipal();
+        PhoneNumber to = new PhoneNumber(user.getPhoneNum());
         PhoneNumber from = new PhoneNumber(twilioConfig.getTrialNumber());
 
         String message = "Thank you for successfully registering to Merkante. If you did not register with this number then please contact support.";
@@ -66,6 +67,7 @@ public class TwilioSmsSender implements SmsSender {
 
         LOGGER.info("Send sms{}");
     }
+
 
     private boolean isPhoneNumberValid(String phoneNumber){
         return true;

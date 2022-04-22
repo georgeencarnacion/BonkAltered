@@ -211,10 +211,28 @@ nav .signin{
 /* User-Info */
 .user-info{
     position: relative;
+    display: block;
+    /*flex-direction: column;*/
     width: 100vw;
     height: 100vh;
 
 }
+
+.user-info .user{
+    border-radius: 10px;
+    box-shadow: 0 5px 10px var(--black-rgba);
+    background: white;
+    position: absolute;
+    left:40%;
+    top: 100%;
+
+}
+
+.user-info .user img{
+    height: 600px;
+    width: 420px;
+}
+
 .user-info .user-form{
     margin-top: 40px;
     position: absolute;
