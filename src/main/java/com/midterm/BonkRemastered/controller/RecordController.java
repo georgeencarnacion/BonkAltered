@@ -16,6 +16,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Controller
 @RequestMapping("/record")
@@ -49,9 +51,12 @@ public class RecordController {
 
         record.setUser(id);
 
+        record.setMonth(new SimpleDateFormat("MMM").format(Calendar.getInstance().getTime()));
         record.setCogs(0);
         record.setRevenue(0);
         record.setNetProfit(0);
+
+        recordService.add(record);
 
         return list(id, model);
     }
@@ -69,6 +74,13 @@ public class RecordController {
         recordService.update(record);
         return list(id, model);
 
+    }
+
+    @DeleteMapping("/{id}")
+    private String delete(@PathVariable Long id, RecordDTO record) {
+        record.setUser(id);
+        recordService.delete(record.getRecordId());
+        return "product/delete-route";
     }
 
 

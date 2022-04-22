@@ -5,6 +5,7 @@ import com.midterm.BonkRemastered.dto.RecordDTO;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Set;
 
 @Entity
 public class Record {
@@ -32,7 +33,6 @@ public class Record {
 
     @Column(nullable = false)
     private long netProfit;
-
 
     public Record() {
     }
@@ -108,4 +108,6 @@ public class Record {
     public void setNetProfit(long netProfit) {
         this.netProfit = netProfit;
     }
+
+
 }

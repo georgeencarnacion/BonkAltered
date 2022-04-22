@@ -6,6 +6,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Collections;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RecordDTO {
 
@@ -27,6 +31,8 @@ public class RecordDTO {
 
     @PositiveOrZero(message = "Income must not be a negative number")
     private long netProfit;
+
+
 
     public RecordDTO(){};
 
@@ -99,4 +105,6 @@ public class RecordDTO {
     public void setNetProfit(long netProfit) {
         this.netProfit = netProfit;
     }
+
+
 }

@@ -78,5 +78,36 @@ public class RecordServiceImpl implements RecordService {
         recordRepository.save(new Record(recordDTO));
 
     }
+
+//    @Override
+//    public Long revenue(Long id, UserDTO userDTO, ProductDTO) {
+//
+//        Record recordL = productRepository.findById(recordDTO.getRecordId()).get();
+//
+//        Long result = null;
+//        Long totalI = null;
+//        Long qty = null;
+//        Long resellP = null;
+//
+//
+//
+//        for (ProductDTO products: userDTO.getProductList()) {
+//            totalI =+ products.getTotalInventory();
+//            return totalI;
+//        }
+//
+//        for (ProductDTO products: userDTO.getProductList()) {
+//            qty =+ products.getQuantity();
+//            return qty;
+//        }
+//
+//        for (ProductDTO products: userDTO.getProductList()) {
+//            resellP =+ products.getResellPrice();
+//            return resellP;
+//        }
+//
+//        result = (totalI - qty) * resellP;
+//        return result;
+//    }
 }
 

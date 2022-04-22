@@ -310,7 +310,7 @@ body::-webkit-scrollbar-thumb{
     margin-top: 50px;
     margin-right: 50px;
     width: 250px;
-    height: 200px;
+    height: 290px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 5px 10px var(--black-rgba);

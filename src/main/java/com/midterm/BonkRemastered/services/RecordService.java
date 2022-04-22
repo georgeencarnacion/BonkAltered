@@ -18,4 +18,6 @@ public interface RecordService {
     void delete(Long id);
 
     void compute(Long id, RecordDTO recordDTO, UserDTO userDTO, ProductDTO productDTO);
+
+
 }

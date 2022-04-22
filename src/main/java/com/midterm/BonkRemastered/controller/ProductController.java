@@ -14,6 +14,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Controller
 @RequestMapping("/inventory")
@@ -43,6 +45,7 @@ public class ProductController {
     private String add(@Valid @ModelAttribute("product") @PathVariable Long id,  ProductDTO product, BindingResult bindingResult, Model model) {
 
         product.setUniqueId(id);
+        product.setMonth(new SimpleDateFormat("MMM").format(Calendar.getInstance().getTime()));
         productService.add(product);
         return list(id, model);
     }
@@ -57,15 +60,18 @@ public class ProductController {
     private String update(@PathVariable Long id, ProductDTO product, Model model) {
 
         product.setUniqueId(id);
+
         productService.update(product);
+
+
         return list(id, model);
     }
 
     @DeleteMapping("/{id}")
-    private String delete(@PathVariable Long id, ProductDTO product, Model model) {
+    private String delete(@PathVariable Long id, ProductDTO product) {
         product.setUniqueId(id);
         productService.delete(product.getProductId());
-        return list(id, model);
+        return "product/delete-route";
     }
 
 }

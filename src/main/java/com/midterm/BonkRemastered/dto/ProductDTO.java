@@ -1,6 +1,8 @@
 package com.midterm.BonkRemastered.dto;
 
 import com.midterm.BonkRemastered.model.Product;
+
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -20,6 +22,11 @@ public class ProductDTO {
     private long totalInventory;
 
 
+    private String month;
+
+
+
+
 
     @PositiveOrZero(message = "Price must not be a negative number")
     private long price;
@@ -29,16 +36,29 @@ public class ProductDTO {
     private long resellPrice;
 
 
+    private Long income;
+
+    private Long expenses;
+
+
+    private Long itemSold;
+
+
     public ProductDTO(){}
 
     public ProductDTO(Product product) {
         this.productId = product.getProductId();
         this.uniqueId = product.getUniqueId().getId();
+
+        this.month = product.getMonth();
         this.productName = product.getProductName();
         this.quantity = product.getQuantity();
         this.totalInventory = product.getTotalInventory();
         this.price = product.getPrice();
         this.resellPrice = product.getResellPrice();
+        this.income = product.getIncome();
+        this.expenses = product.getExpenses();
+        this.itemSold = product.getItemSold();
     }
 
 
@@ -102,5 +122,38 @@ public class ProductDTO {
 
     public void setUniqueId(Long uniqueId) {
         this.uniqueId = uniqueId;
+    }
+
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public Long getIncome() {
+        return income;
+    }
+
+    public void setIncome(Long income) {
+        this.income = income;
+    }
+
+    public Long getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Long expenses) {
+        this.expenses = expenses;
+    }
+
+    public Long getItemSold() {
+        return itemSold;
+    }
+
+    public void setItemSold(Long itemSold) {
+        this.itemSold = itemSold;
     }
 }
