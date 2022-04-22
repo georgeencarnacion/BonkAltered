@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Expenses</title>
+</head>
+<body>
+
+<nav th:replace="fragments/InventoryHeader" :: headerAuthenticated></nav>
+
+
+<div class="expenses">
+
+    <form action="calculate">
+
+        <h1>Expenses</h1>
+
+        <span>Expenses:</span>
+        <input type="number" placeholder="Additional Expenses?">
+
+        <button type="submit">Get Record</button>
+
+    </form>
+
+    <form class="addForm" th:method="PUT" th:action="@{~/record/{id}/(id=${#authentication.principal.Id})}" th:object="${record}">
+        <input type="hidden" name="id" th:field="${record.recordId}">
+        <h1>View Expenses</h1>
+
+        <span>Month</span>
+        <input type="text" id="month" th:field="${record.month}" placeholder="Month">
+
+        <span>Revenue:</span>
+        <input type="text" id="revenue" th:field="${record.revenue}"placeholder="Revenue">
+
+        <span>Cost of Goods Sold: </span>
+        <input type="text" id="cogs" th:field="${record.cogs}" placeholder="CoGS">
+
+        <span>Expenses:</span>
+        <input type="number" id="expenses" th:field="${record.expenses}" placeholder="Expenses" readonly>
+
+        <span>Net Profit:</span>
+        <input type="text" id="netProfit" th:field="${record.netProfit}" placeholder="Net Profit">
+
+        <button type="submit">Add Expense</button>
+
+
+
+    </form>
+    <form class="del" th:method="delete" th:action="@{~/record/{id}/(id=${#authentication.principal.Id})}">
+        <input type="hidden" name="id"  th:field="*{record.recordId}">
+        <button type="submit" class="delete">Delete</button>
+    </form>
+</div>
+
+</body>
+</html>
