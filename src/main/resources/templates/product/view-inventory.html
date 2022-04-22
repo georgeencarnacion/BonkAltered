@@ -25,7 +25,11 @@
             <th>Total Inventory</th>
             <th>Price</th>
             <th>Resell Price</th>
+            <th>Expenses</th>
+            <th>Income</th>
+            <th>Item Sold</th>
             <th>Actions</th>
+
         </tr>
         </thead>
         <tbody>
@@ -36,6 +40,10 @@
             <td th:text="${product.totalInventory}"></td>
             <td th:text="|₱ ${product.price}|"></td>
             <td th:text="|₱ ${product.resellPrice}|"></td>
+            <td th:text="|₱ ${product.expenses}|"></td>
+            <td th:text="|₱ ${product.income}|"></td>
+            <td th:text="${product.itemSold}"></td>
+
 
             <td ><a class="add" th:href="@{~/inventory/{id}/view(id=${product.productId})}">View</a>
 
