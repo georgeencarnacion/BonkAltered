@@ -1,0 +1,22 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: 'update'
+
+  dynamic-insert: true
+
+  datasource:
+    url: jdbc:mariadb://localhost:3306/merkante
+    username: root
+    password: jemsizded
+    driver-class-name: org.mariadb.jdbc.Driver
+
+twilio:
+  account_sid: AC82334e51a2e4833c11b509506897baa0
+  auth_token: 3a3aeeef3ab7f8cfa8db447828d014ef
+  trial_number: +19206787353
