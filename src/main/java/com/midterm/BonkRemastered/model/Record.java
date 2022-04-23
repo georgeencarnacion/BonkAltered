@@ -1,6 +1,8 @@
 package com.midterm.BonkRemastered.model;
 
 import com.midterm.BonkRemastered.dto.RecordDTO;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -26,12 +28,15 @@ public class Record {
     private long revenue;
 
     @Column(nullable = false)
+
     private long cogs;
 
     @Column(nullable = false)
+
     private long expenses;
 
     @Column(nullable = false)
+
     private long netProfit;
 
     public Record() {

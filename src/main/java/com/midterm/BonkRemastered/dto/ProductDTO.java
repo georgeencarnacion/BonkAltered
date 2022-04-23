@@ -36,9 +36,9 @@ public class ProductDTO {
     private long resellPrice;
 
 
-    private Long income;
+    private Long income ;
 
-    private Long expenses;
+    private Long expenses ;
 
 
     private Long itemSold;

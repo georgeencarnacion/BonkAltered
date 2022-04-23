@@ -2,6 +2,7 @@ package com.midterm.BonkRemastered.model;
 
 
 import com.midterm.BonkRemastered.dto.ProductDTO;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 

@@ -46,6 +46,9 @@ public class ProductController {
 
         product.setUniqueId(id);
         product.setMonth(new SimpleDateFormat("MMM").format(Calendar.getInstance().getTime()));
+        product.setExpenses(0L);
+        product.setIncome(0L);
+        product.setItemSold(0L);
         productService.add(product);
         return list(id, model);
     }

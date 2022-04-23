@@ -31,12 +31,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/css/**").permitAll()
                 // Here, we are allowing access to the landing, and register pages to anonymous users only
-                .antMatchers("/","/login*", "/register*","/forgot*","/admin*")
+                .antMatchers("/","/login*", "/register*","/forgot*")
                 .anonymous()
                 // Here, we are allowing access to user pages to the user role only
                 .antMatchers("/admin*").hasRole("ADMIN")
                 // Here, we are allowing access to product pages to the admin and user roles only
-                .antMatchers("/product*", "/business*","/home*","/admin*").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/product*", "/business*","/home*").hasAnyRole("ADMIN", "USER")
 
 //                 Any other requests should be authenticated
                 .anyRequest()
